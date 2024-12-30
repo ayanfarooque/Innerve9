@@ -1,0 +1,40 @@
+[
+    {
+        "_id":"6772be4684d61676425851bf",
+        "hospitalName":"Sasoon Hospital",
+        "totalBeds":200,
+        "availableBeds":50,
+        "equipment":[
+            {
+                "name":"Ventilator",
+                "quantity":10,
+                "_id":"6772be4684d61676425851c0"
+            },
+            {
+                "name":"Oxygen Cylinder",
+                "quantity":100,
+                "_id":"6772be4684d61676425851c1"
+            }
+        ],
+        "__v":0
+    },
+    {
+        "_id":"6772be4684d61676425851c2",
+        "hospitalName":"Ruby Hospital",
+        "totalBeds":100,
+        "availableBeds":20,
+        "equipment":[
+            {
+                "name":"Defibrillator",
+                "quantity":5,
+                "_id":"6772be4684d61676425851c3"
+            },
+            {
+                "name":"X-Ray Machine",
+                "quantity":2,
+                "_id":"6772be4684d61676425851c4"
+            }
+        ],
+        "__v":0
+    }
+]
