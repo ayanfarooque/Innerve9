@@ -2,10 +2,10 @@ import React from 'react'
 import Header from '../../Comp/Header/Header'
 import Footer from '../../Comp/Footer/Footer' 
 import { useState, useMemo } from "react";
-import { Button } from "@/components/ui/button";
-import  DashboardCard  from './DashboardCard';
 import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
 import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from "@/components/ui/select";
+import  DashboardCard  from './DashboardCard';
 import DoctorModal from './DoctorModal';
 import doctorsDetailed from './Doctors.json'
 
@@ -38,16 +38,23 @@ const Dashboard = () => {
 
   const renderCards = (data) => {
     return data.map((item) => {
-      const { id, name, ...content } = item;
+      const { id, name, specialty, experience, ...content } = item; // Destructure properties
+      
+      // Determine the card content based on the active section
       const cardContent = activeSection === 'doctors'
-        ? { specialty: content.specialty, experience: content.experience }
-        : content
-
-
+        ? { specialty, experience } // Include only doctor-specific fields
+        : content; // Include remaining content for hospitals or other sections
+  
       return (
         <div key={id} className="w-full">
-          <DashboardCard title={name} content={cardContent} isDoctor={activeSection === 'doctors'}
-            onViewProfile={activeSection === 'doctors' ? () => setSelectedDoctor(item) : undefined}/>
+          <DashboardCard
+            id={id}
+            title={name} // Use the name as the title
+            content={cardContent} // Pass the processed content
+            isDoctor={activeSection === 'doctors'} // Mark as doctor card if active section is doctors
+            isHospital={activeSection === 'hospitals'} // Mark as hospital card if active section is hospitals
+            onViewProfile={activeSection === 'doctors' ? () => setSelectedDoctor(item) : undefined} // Attach the click handler for doctors
+          />
         </div>
       );
     });
@@ -68,7 +75,7 @@ const Dashboard = () => {
         <Button
           onClick={() => setActiveSection("hospitals")}
           variant={activeSection === "hospitals" ? "active" : "outline"}
-          className='bg-white'
+          className='bg-white text-black'
         >
           Hospitals
         </Button>
