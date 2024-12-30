@@ -38,38 +38,38 @@
         "experience": "8 years"
       },
       {
-        "id": 1,
+        "id": 7,
         "name": "Dr. John Doe",
         "specialty": "Cardiology",
         "experience": "15 years"
         
       },
       {
-        "id": 2,
+        "id": 8,
         "name": "Dr. Jane Smith",
         "specialty": "Pediatrics",
         "experience": "10 years"
       },
       {
-        "id": 3,
+        "id": 9,
         "name": "Dr. Mike Johnson",
         "specialty": "Neurology",
         "experience": "20 years"
       },
       {
-        "id": 4,
+        "id": 10,
         "name": "Dr. Sarah Brown",
         "specialty": "Oncology",
         "experience": "12 years"
       },
       {
-        "id": 5,
+        "id": 11,
         "name": "Dr. David Lee",
         "specialty": "Orthopedics",
         "experience": "18 years"
       },
       {
-        "id": 6,
+        "id": 12,
         "name": "Dr. Emily Chen",
         "specialty": "Dermatology",
         "experience": "8 years"
@@ -113,37 +113,37 @@
         "beds": 350
       },
       {
-        "id": 1,
+        "id": 7,
         "name": "City General Hospital",
         "location": "Downtown",
         "beds": 500
       },
       {
-        "id": 2,
+        "id": 8,
         "name": "Sunshine Medical Center",
         "location": "Suburbs",
         "beds": 300
       },
       {
-        "id": 3,
+        "id": 9,
         "name": "Riverside Health Institute",
         "location": "Riverside",
         "beds": 400
       },
       {
-        "id": 4,
+        "id": 10,
         "name": "Mountain View Hospital",
         "location": "Uptown",
         "beds": 250
       },
       {
-        "id": 5,
+        "id": 11,
         "name": "Central Medical Complex",
         "location": "Midtown",
         "beds": 600
       },
       {
-        "id": 6,
+        "id": 12,
         "name": "Harbor Health Center",
         "location": "Waterfront",
         "beds": 350

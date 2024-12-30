@@ -1,0 +1,234 @@
+{
+    "doctors": [{
+      "id": 1,
+      "name": "Dr. John Doe",
+      "specialty": "Cardiology",
+      "experience": "15 years",
+      "education": "MD from Harvard Medical School",
+      "bio": "Dr. John Doe is a renowned cardiologist with extensive experience in treating complex heart conditions.",
+      "schedule": [
+        { "day": "Monday", "hours": "9:00 AM - 5:00 PM" },
+        { "day": "Wednesday", "hours": "10:00 AM - 6:00 PM" },
+        { "day": "Friday", "hours": "9:00 AM - 3:00 PM" }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Dr. Jane Smith",
+      "specialty": "Pediatrics",
+      "experience": "10 years",
+      "education": "MD from Johns Hopkins University",
+      "bio": "Dr. Jane Smith is a compassionate pediatrician dedicated to providing excellent care for children of all ages.",
+      "schedule": [
+        { "day": "Tuesday", "hours": "8:00 AM - 4:00 PM" },
+        { "day": "Thursday", "hours": "9:00 AM - 5:00 PM" },
+        { "day": "Saturday", "hours": "10:00 AM - 2:00 PM" }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Dr. Mike Johnson",
+      "specialty": "Neurology",
+      "experience": "20 years",
+      "education": "MD from Stanford University",
+      "bio": "Dr. Mike Johnson is a highly skilled neurologist specializing in the treatment of complex neurological disorders.",
+      "schedule": [
+        { "day": "Monday", "hours": "8:00 AM - 4:00 PM" },
+        { "day": "Wednesday", "hours": "9:00 AM - 5:00 PM" },
+        { "day": "Friday", "hours": "10:00 AM - 6:00 PM" }
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Dr. Sarah Brown",
+      "specialty": "Oncology",
+      "experience": "12 years",
+      "education": "MD from Yale University",
+      "bio": "Dr. Sarah Brown is an experienced oncologist committed to providing cutting-edge cancer treatments and compassionate care.",
+      "schedule": [
+        { "day": "Tuesday", "hours": "9:00 AM - 5:00 PM" },
+        { "day": "Thursday", "hours": "10:00 AM - 6:00 PM" },
+        { "day": "Friday", "hours": "8:00 AM - 2:00 PM" }
+      ]
+    },
+    {
+      "id": 5,
+      "name": "Dr. David Lee",
+      "specialty": "Orthopedics",
+      "experience": "18 years",
+      "education": "MD from University of California, San Francisco",
+      "bio": "Dr. David Lee is a skilled orthopedic surgeon specializing in sports medicine and joint replacement surgeries.",
+      "schedule": [
+        { "day": "Monday", "hours": "7:00 AM - 3:00 PM" },
+        { "day": "Wednesday", "hours": "9:00 AM - 5:00 PM" },
+        { "day": "Thursday", "hours": "10:00 AM - 6:00 PM" }
+      ]
+    },
+    {
+      "id": 6,
+      "name": "Dr. Emily Chen",
+      "specialty": "Dermatology",
+      "experience": "8 years",
+      "education": "MD from University of Pennsylvania",
+      "bio": "Dr. Emily Chen is a board-certified dermatologist specializing in both medical and cosmetic dermatology.",
+      "schedule": [
+        { "day": "Tuesday", "hours": "9:00 AM - 5:00 PM" },
+        { "day": "Thursday", "hours": "10:00 AM - 6:00 PM" },
+        { "day": "Saturday", "hours": "9:00 AM - 1:00 PM" }
+      ]
+    },
+    {
+      "id": 7,
+      "name": "Dr. John Doe",
+      "specialty": "Cardiology",
+      "experience": "15 years",
+      "education": "MD from Harvard Medical School",
+      "bio": "Dr. John Doe is a renowned cardiologist with extensive experience in treating complex heart conditions.",
+      "schedule": [
+        { "day": "Monday", "hours": "9:00 AM - 5:00 PM" },
+        { "day": "Wednesday", "hours": "10:00 AM - 6:00 PM" },
+        { "day": "Friday", "hours": "9:00 AM - 3:00 PM" }
+      ]
+    },
+    {
+      "id": 8,
+      "name": "Dr. Jane Smith",
+      "specialty": "Pediatrics",
+      "experience": "10 years",
+      "education": "MD from Johns Hopkins University",
+      "bio": "Dr. Jane Smith is a compassionate pediatrician dedicated to providing excellent care for children of all ages.",
+      "schedule": [
+        { "day": "Tuesday", "hours": "8:00 AM - 4:00 PM" },
+        { "day": "Thursday", "hours": "9:00 AM - 5:00 PM" },
+        { "day": "Saturday", "hours": "10:00 AM - 2:00 PM" }
+      ]
+    },
+    {
+      "id": 9,
+      "name": "Dr. Mike Johnson",
+      "specialty": "Neurology",
+      "experience": "20 years",
+      "education": "MD from Stanford University",
+      "bio": "Dr. Mike Johnson is a highly skilled neurologist specializing in the treatment of complex neurological disorders.",
+      "schedule": [
+        { "day": "Monday", "hours": "8:00 AM - 4:00 PM" },
+        { "day": "Wednesday", "hours": "9:00 AM - 5:00 PM" },
+        { "day": "Friday", "hours": "10:00 AM - 6:00 PM" }
+      ]
+    },
+    {
+      "id": 10,
+      "name": "Dr. Sarah Brown",
+      "specialty": "Oncology",
+      "experience": "12 years",
+      "education": "MD from Yale University",
+      "bio": "Dr. Sarah Brown is an experienced oncologist committed to providing cutting-edge cancer treatments and compassionate care.",
+      "schedule": [
+        { "day": "Tuesday", "hours": "9:00 AM - 5:00 PM" },
+        { "day": "Thursday", "hours": "10:00 AM - 6:00 PM" },
+        { "day": "Friday", "hours": "8:00 AM - 2:00 PM" }
+      ]
+    },
+    {
+      "id":11,
+      "name": "Dr. David Lee",
+      "specialty": "Orthopedics",
+      "experience": "18 years",
+      "education": "MD from University of California, San Francisco",
+      "bio": "Dr. David Lee is a skilled orthopedic surgeon specializing in sports medicine and joint replacement surgeries.",
+      "schedule": [
+        { "day": "Monday", "hours": "7:00 AM - 3:00 PM" },
+        { "day": "Wednesday", "hours": "9:00 AM - 5:00 PM" },
+        { "day": "Thursday", "hours": "10:00 AM - 6:00 PM" }
+      ]
+    },
+    {
+      "id": 12,
+      "name": "Dr. Emily Chen",
+      "specialty": "Dermatology",
+      "experience": "8 years",
+      "education": "MD from University of Pennsylvania",
+      "bio": "Dr. Emily Chen is a board-certified dermatologist specializing in both medical and cosmetic dermatology.",
+      "schedule": [
+        { "day": "Tuesday", "hours": "9:00 AM - 5:00 PM" },
+        { "day": "Thursday", "hours": "10:00 AM - 6:00 PM" },
+        { "day": "Saturday", "hours": "9:00 AM - 1:00 PM" }
+      ]
+    }],
+    "hospitals": [
+      {
+        "id": 1,
+        "name": "City General Hospital",
+        "location": "Downtown",
+        "beds": 500
+      },
+      {
+        "id": 2,
+        "name": "Sunshine Medical Center",
+        "location": "Suburbs",
+        "beds": 300
+      },
+      {
+        "id": 3,
+        "name": "Riverside Health Institute",
+        "location": "Riverside",
+        "beds": 400
+      },
+      {
+        "id": 4,
+        "name": "Mountain View Hospital",
+        "location": "Uptown",
+        "beds": 250
+      },
+      {
+        "id": 5,
+        "name": "Central Medical Complex",
+        "location": "Midtown",
+        "beds": 600
+      },
+      {
+        "id": 6,
+        "name": "Harbor Health Center",
+        "location": "Waterfront",
+        "beds": 350
+      },
+      {
+        "id": 7,
+        "name": "City General Hospital",
+        "location": "Downtown",
+        "beds": 500
+      },
+      {
+        "id": 8,
+        "name": "Sunshine Medical Center",
+        "location": "Suburbs",
+        "beds": 300
+      },
+      {
+        "id": 9,
+        "name": "Riverside Health Institute",
+        "location": "Riverside",
+        "beds": 400
+      },
+      {
+        "id": 10,
+        "name": "Mountain View Hospital",
+        "location": "Uptown",
+        "beds": 250
+      },
+      {
+        "id": 11,
+        "name": "Central Medical Complex",
+        "location": "Midtown",
+        "beds": 600
+      },
+      {
+        "id": 12,
+        "name": "Harbor Health Center",
+        "location": "Waterfront",
+        "beds": 350
+      }
+    ]
+}
+  
+  

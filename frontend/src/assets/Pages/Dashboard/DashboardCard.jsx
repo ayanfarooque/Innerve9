@@ -1,7 +1,8 @@
 import React from 'react'
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { Button } from '@/components/ui/button'
 
-const DashboardCard = ({ title, content = {} }) => {
+const DashboardCard = ({ title, content, onViewProfile, isDoctor }) => {
   return (
     <div>
     <Card className="w-full bg-white">
@@ -17,6 +18,11 @@ const DashboardCard = ({ title, content = {} }) => {
             </div>
           ))}
         </dl>
+        {isDoctor && onViewProfile && (
+          <Button onClick={onViewProfile} className="w-full mt-4 bg-purple-600 text-white">
+            View Profile
+          </Button>
+        )}
       </CardContent>
     </Card>
     </div>
