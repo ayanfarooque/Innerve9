@@ -1,11 +1,12 @@
-import React from 'react';
+import React, {useMemo} from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import hospitalsData from './Doctors.json';
+import hospitalsData from '../../Comp/Tables/data.json';
 
 const HospitalPage = () => {
-    const hospitalss = hospitalsData.hospitals;
 
-    console.log(hospitalss[0]);
+    const hospitalss = hospitalsData;
+
+    console.log(hospitalss);
 
     // if (!hospitalss || !Array.isArray(hospitalss)) {
     //     console.error("Invalid data format: hospitals is not an array");

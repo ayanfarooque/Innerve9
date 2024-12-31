@@ -12,15 +12,21 @@ const Home = () => {
           icon: <img src="src\assets\Logo\dashboard.png" alt="Dashboard Icon" className="h-14 w-14"/>,  
         },
         {
+          title: "Availiablity Search",
+          description: "Check Availiablity",
+          href: "search",
+          icon: <img src="src\assets\Logo\search.png" alt="Dashboard Icon" className="h-14 w-14"/>,  
+        },
+        {
           title: "Blood",
           description: "Check Availablity and Donate Blood",
-          href: "#",
+          href: "blood",
           icon: <img src="src/assets/Logo/blood-test.png" alt="Blood Test Icon" className="h-14 w-14" />, 
         },
         {
             title: "Admin",
             description: "Update and Upload Dashboard",
-            href: "#",
+            href: "admin",
             icon: <img src="src\assets\Logo\admin.png" alt="Admin Icon" className="h-14 w-14"/>,
         }
 
@@ -37,9 +43,9 @@ const Home = () => {
     <div className="bg-[#f3efff]">
       <Ribbon/>
       <Header/>
-      <h1 className=" flex justify-center text-5xl font-semibold text-[#4A148C] py-16 ">Hospital Resource Portal</h1>
-      <div className="container mx-auto px-4 py-8">
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <h1 className=" flex justify-center text-5xl font-semibold text-[#4A148C] pt-10">Hospital Resource Portal</h1>
+      <div className="container mx-auto px-32 py-16">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
         {cards.map((card) => (
           <a key={card.title} href={card.href} className="w-full">
             <Card className="hover:shadow-xl transition-shadow duration-200 cursor-pointer h-full">

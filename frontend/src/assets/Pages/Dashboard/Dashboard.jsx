@@ -1,6 +1,7 @@
 import React from 'react'
 import Header from '../../Comp/Header/Header'
 import Footer from '../../Comp/Footer/Footer' 
+import { useNavigate } from 'react-router-dom';
 import { useState, useMemo } from "react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -10,6 +11,9 @@ import DoctorModal from './DoctorModal';
 import doctorsDetailed from './Doctors.json'
 
 const Dashboard = () => {
+
+  const navigate = useNavigate();
+
   const [activeSection, setActiveSection] = useState("doctors");
   const [searchQuery, setSearchQuery] = useState('')
   const [sortOrder, setSortOrder] = useState('asc')
@@ -51,8 +55,6 @@ const Dashboard = () => {
             id={id}
             title={name} // Use the name as the title
             content={cardContent} // Pass the processed content
-            isDoctor={activeSection === 'doctors'} // Mark as doctor card if active section is doctors
-            isHospital={activeSection === 'hospitals'} // Mark as hospital card if active section is hospitals
             onViewProfile={activeSection === 'doctors' ? () => setSelectedDoctor(item) : undefined} // Attach the click handler for doctors
           />
         </div>
@@ -67,15 +69,13 @@ const Dashboard = () => {
         <div className='flex space-x-5'>
         <Button
           onClick={() => setActiveSection("doctors")}
-          variant={activeSection === "doctors" ? "active" : "outline"}
-          className='bg-white'
+          variant={activeSection === "doctors" ? "active" : "close"}
         >
           Doctors
         </Button>
         <Button
-          onClick={() => setActiveSection("hospitals")}
-          variant={activeSection === "hospitals" ? "active" : "outline"}
-          className='bg-white text-black'
+          onClick={() => navigate("/hospital-dashboard")}
+          className='bg-white'
         >
           Hospitals
         </Button>
@@ -103,7 +103,7 @@ const Dashboard = () => {
       </div>
 
       <h1 className="text-3xl font-bold m-12 text-center">
-        {activeSection === "doctors" ? "Doctors" : "Hospitals"}
+        Doctors
       </h1>
 
       <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6">

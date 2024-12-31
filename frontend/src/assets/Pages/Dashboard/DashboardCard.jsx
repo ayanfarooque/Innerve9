@@ -1,21 +1,13 @@
 import React from 'react'
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from '@/components/ui/button'
-import HospitalPage from './HospitalPage'
-import { Link } from 'react-router-dom';
 
-const DashboardCard = ({ id, title, content, onViewProfile, isDoctor,isHospital }) => {
-
-  const CardWrapper = isHospital ? HospitalPage : 'div';
-  const cardProps = isHospital
-  ? { as: Link, to: `/hospitals/${id}` }
-  : {};
+const DashboardCard = ({ title, content, onViewProfile, }) => {
 
 
   return (
     <div>
-    <CardWrapper {...cardProps}>
-    <Card className={`w-full ${isHospital ? 'cursor-pointer hover:shadow-md transition-shadow' : ''}`}>
+    <Card className='w-full'>
       <CardHeader>
         <CardTitle>{title}</CardTitle>
       </CardHeader>
@@ -28,14 +20,11 @@ const DashboardCard = ({ id, title, content, onViewProfile, isDoctor,isHospital 
             </div>
           ))}
         </dl>
-        {isDoctor && onViewProfile && (
           <Button onClick={onViewProfile} className="w-full mt-4 bg-purple-600 text-white">
             View Profile
           </Button>
-        )}
       </CardContent>
     </Card>
-    </CardWrapper>
     </div>
   )
 }

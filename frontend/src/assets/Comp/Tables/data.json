@@ -1,0 +1,441 @@
+[
+    {
+      "id": 13,
+      "name": "City General Hospital",
+      "location": "123 Main St, Downtown, City 12345",
+      "beds": 500,
+      "oxygencyl": 15,
+      "powerBackup": true,
+      "resources": [
+        "Emergency Room",
+        "Intensive Care Unit",
+        "Radiology Department",
+        "Surgery Center",
+        "Maternity Ward"
+      ],
+      "doctors": [
+        {
+          "name": "Dr. John Doe",
+          "specialty": "Cardiology",
+          "schedule": [
+            { "day": "Monday", "hours": "9:00 AM - 5:00 PM" },
+            { "day": "Wednesday", "hours": "10:00 AM - 6:00 PM" },
+            { "day": "Friday", "hours": "9:00 AM - 3:00 PM" }
+          ]
+        },
+        {
+          "name": "Dr. Jane Smith",
+          "specialty": "Pediatrics",
+          "schedule": [
+            { "day": "Tuesday", "hours": "8:00 AM - 4:00 PM" },
+            { "day": "Thursday", "hours": "9:00 AM - 5:00 PM" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "name": "Sunshine Medical Center",
+      "location": "456 Oak Ave, Suburbs, City 67890",
+      "beds": 300,
+      "oxygencyl": 15,
+      "powerBackup": true,
+      "resources": [
+        "Emergency Room",
+        "Oncology Department",
+        "Rehabilitation Center",
+        "Diagnostic Imaging"
+      ],
+      "doctors": [
+        {
+          "name": "Dr. Mike Johnson",
+          "specialty": "Oncology",
+          "schedule": [
+            { "day": "Monday", "hours": "8:00 AM - 4:00 PM" },
+            { "day": "Wednesday", "hours": "9:00 AM - 5:00 PM" },
+            { "day": "Friday", "hours": "10:00 AM - 6:00 PM" }
+          ]
+        },
+        {
+          "name": "Dr. Sarah Brown",
+          "specialty": "Neurology",
+          "schedule": [
+            { "day": "Tuesday", "hours": "9:00 AM - 5:00 PM" },
+            { "day": "Thursday", "hours": "10:00 AM - 6:00 PM" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 15,
+      "name": "Riverside Health Institute",
+      "location": "789 River Rd, Riverside, City 13579",
+      "beds": 400,
+      "oxygencyl": 15,
+      "powerBackup": true,
+      "resources": [
+        "Emergency Room",
+        "Cardiovascular Center",
+        "Neurology Department",
+        "Orthopedic Center",
+        "Pediatric Unit"
+      ],
+      "doctors": [
+        {
+          "name": "Dr. David Lee",
+          "specialty": "Cardiology",
+          "schedule": [
+            { "day": "Monday", "hours": "7:00 AM - 3:00 PM" },
+            { "day": "Wednesday", "hours": "9:00 AM - 5:00 PM" },
+            { "day": "Thursday", "hours": "10:00 AM - 6:00 PM" }
+          ]
+        },
+        {
+          "name": "Dr. Emily Chen",
+          "specialty": "Neurology",
+          "schedule": [
+            { "day": "Tuesday", "hours": "9:00 AM - 5:00 PM" },
+            { "day": "Friday", "hours": "8:00 AM - 4:00 PM" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 16,
+      "name": "Mountain View Hospital",
+      "location": "101 Hill St, Uptown, City 24680",
+      "beds": 250,
+      "oxygencyl": 15,
+      "powerBackup": false,
+      "resources": [
+        "Emergency Room",
+        "Maternity Ward",
+        "General Surgery",
+        "Outpatient Clinic"
+      ],
+      "doctors": [
+        {
+          "name": "Dr. Robert Wilson",
+          "specialty": "General Surgery",
+          "schedule": [
+            { "day": "Monday", "hours": "8:00 AM - 4:00 PM" },
+            { "day": "Wednesday", "hours": "9:00 AM - 5:00 PM" },
+            { "day": "Friday", "hours": "10:00 AM - 6:00 PM" }
+          ]
+        },
+        {
+          "name": "Dr. Lisa Taylor",
+          "specialty": "Obstetrics",
+          "schedule": [
+            { "day": "Tuesday", "hours": "9:00 AM - 5:00 PM" },
+            { "day": "Thursday", "hours": "10:00 AM - 6:00 PM" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 17,
+      "name": "Central Medical Complex",
+      "location": "202 Center Ave, Midtown, City 97531",
+      "beds": 600,
+      "oxygencyl": 15,
+      "powerBackup": true,
+      "resources": [
+        "Emergency Room",
+        "Trauma Center",
+        "Cancer Center",
+        "Heart Institute",
+        "Neuroscience Center",
+        "Transplant Center"
+      ],
+      "doctors": [
+        {
+          "name": "Dr. Michael Chang",
+          "specialty": "Neurosurgery",
+          "schedule": [
+            { "day": "Monday", "hours": "7:00 AM - 3:00 PM" },
+            { "day": "Wednesday", "hours": "8:00 AM - 4:00 PM" },
+            { "day": "Friday", "hours": "9:00 AM - 5:00 PM" }
+          ]
+        },
+        {
+          "name": "Dr. Amanda Patel",
+          "specialty": "Oncology",
+          "schedule": [
+            { "day": "Tuesday", "hours": "9:00 AM - 5:00 PM" },
+            { "day": "Thursday", "hours": "10:00 AM - 6:00 PM" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 18,
+      "name": "Harbor Health Center",
+      "location": "303 Dock St, Waterfront, City 86420",
+      "beds": 350,
+      "oxygencyl": 15,
+      "powerBackup": true,
+      "resources": [
+        "Emergency Room",
+        "Cardiology Department",
+        "Orthopedic Center",
+        "Rehabilitation Unit",
+        "Dialysis Center"
+      ],
+      "doctors": [
+        {
+          "name": "Dr. Thomas Anderson",
+          "specialty": "Cardiology",
+          "schedule": [
+            { "day": "Monday", "hours": "8:00 AM - 4:00 PM" },
+            { "day": "Wednesday", "hours": "9:00 AM - 5:00 PM" },
+            { "day": "Friday", "hours": "10:00 AM - 6:00 PM" }
+          ]
+        },
+        {
+          "name": "Dr. Rachel Kim",
+          "specialty": "Orthopedics",
+          "schedule": [
+            { "day": "Tuesday", "hours": "9:00 AM - 5:00 PM" },
+            { "day": "Thursday", "hours": "10:00 AM - 6:00 PM" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 19,
+      "name": "City General Hospital",
+      "location": "123 Main St, Downtown, City 12345",
+      "beds": 500,
+      "oxygencyl": 15,
+      "powerBackup": true,
+      "resources": [
+        "Emergency Room",
+        "Intensive Care Unit",
+        "Radiology Department",
+        "Surgery Center",
+        "Maternity Ward"
+      ],
+      "doctors": [
+        {
+          "name": "Dr. John Doe",
+          "specialty": "Cardiology",
+          "schedule": [
+            { "day": "Monday", "hours": "9:00 AM - 5:00 PM" },
+            { "day": "Wednesday", "hours": "10:00 AM - 6:00 PM" },
+            { "day": "Friday", "hours": "9:00 AM - 3:00 PM" }
+          ]
+        },
+        {
+          "name": "Dr. Jane Smith",
+          "specialty": "Pediatrics",
+          "schedule": [
+            { "day": "Tuesday", "hours": "8:00 AM - 4:00 PM" },
+            { "day": "Thursday", "hours": "9:00 AM - 5:00 PM" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 20,
+      "name": "Sunshine Medical Center",
+      "location": "456 Oak Ave, Suburbs, City 67890",
+      "beds": 300,
+      "oxygencyl": 15,
+      "powerBackup": true,
+      "resources": [
+        "Emergency Room",
+        "Oncology Department",
+        "Rehabilitation Center",
+        "Diagnostic Imaging"
+      ],
+      "doctors": [
+        {
+          "name": "Dr. Mike Johnson",
+          "specialty": "Oncology",
+          "schedule": [
+            { "day": "Monday", "hours": "8:00 AM - 4:00 PM" },
+            { "day": "Wednesday", "hours": "9:00 AM - 5:00 PM" },
+            { "day": "Friday", "hours": "10:00 AM - 6:00 PM" }
+          ]
+        },
+        {
+          "name": "Dr. Sarah Brown",
+          "specialty": "Neurology",
+          "schedule": [
+            { "day": "Tuesday", "hours": "9:00 AM - 5:00 PM" },
+            { "day": "Thursday", "hours": "10:00 AM - 6:00 PM" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 21,
+      "name": "Riverside Health Institute",
+      "location": "789 River Rd, Riverside, City 13579",
+      "beds": 400,
+      "oxygencyl": 15,
+      "powerBackup": true,
+      "resources": [
+        "Emergency Room",
+        "Cardiovascular Center",
+        "Neurology Department",
+        "Orthopedic Center",
+        "Pediatric Unit"
+      ],
+      "doctors": [
+        {
+          "name": "Dr. David Lee",
+          "specialty": "Cardiology",
+          "schedule": [
+            { "day": "Monday", "hours": "7:00 AM - 3:00 PM" },
+            { "day": "Wednesday", "hours": "9:00 AM - 5:00 PM" },
+            { "day": "Thursday", "hours": "10:00 AM - 6:00 PM" }
+          ]
+        },
+        {
+          "name": "Dr. Emily Chen",
+          "specialty": "Neurology",
+          "schedule": [
+            { "day": "Tuesday", "hours": "9:00 AM - 5:00 PM" },
+            { "day": "Friday", "hours": "8:00 AM - 4:00 PM" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 22,
+      "name": "Mountain View Hospital",
+      "location": "101 Hill St, Uptown, City 24680",
+      "beds": 250,
+      "oxygencyl": 15,
+      "powerBackup": false,
+      "resources": [
+        "Emergency Room",
+        "Maternity Ward",
+        "General Surgery",
+        "Outpatient Clinic"
+      ],
+      "doctors": [
+        {
+          "name": "Dr. Robert Wilson",
+          "specialty": "General Surgery",
+          "schedule": [
+            { "day": "Monday", "hours": "8:00 AM - 4:00 PM" },
+            { "day": "Wednesday", "hours": "9:00 AM - 5:00 PM" },
+            { "day": "Friday", "hours": "10:00 AM - 6:00 PM" }
+          ]
+        },
+        {
+          "name": "Dr. Lisa Taylor",
+          "specialty": "Obstetrics",
+          "schedule": [
+            { "day": "Tuesday", "hours": "9:00 AM - 5:00 PM" },
+            { "day": "Thursday", "hours": "10:00 AM - 6:00 PM" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 23,
+      "name": "Central Medical Complex",
+      "location": "202 Center Ave, Midtown, City 97531",
+      "beds": 600,
+      "oxygencyl": 15,
+      "powerBackup": true,
+      "resources": [
+        "Emergency Room",
+        "Trauma Center",
+        "Cancer Center",
+        "Heart Institute",
+        "Neuroscience Center",
+        "Transplant Center"
+      ],
+      "doctors": [
+        {
+          "name": "Dr. Michael Chang",
+          "specialty": "Neurosurgery",
+          "schedule": [
+            { "day": "Monday", "hours": "7:00 AM - 3:00 PM" },
+            { "day": "Wednesday", "hours": "8:00 AM - 4:00 PM" },
+            { "day": "Friday", "hours": "9:00 AM - 5:00 PM" }
+          ]
+        },
+        {
+          "name": "Dr. Amanda Patel",
+          "specialty": "Oncology",
+          "schedule": [
+            { "day": "Tuesday", "hours": "9:00 AM - 5:00 PM" },
+            { "day": "Thursday", "hours": "10:00 AM - 6:00 PM" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 24,
+      "name": "Harbor Health Center",
+      "location": "303 Dock St, Waterfront, City 86420",
+      "beds": 350,
+      "oxygencyl": 15,
+      "powerBackup": true,
+      "resources": [
+        "Emergency Room",
+        "Cardiology Department",
+        "Orthopedic Center",
+        "Rehabilitation Unit",
+        "Dialysis Center"
+      ],
+      "doctors": [
+        {
+          "name": "Dr. Thomas Anderson",
+          "specialty": "Cardiology",
+          "schedule": [
+            { "day": "Monday", "hours": "8:00 AM - 4:00 PM" },
+            { "day": "Wednesday", "hours": "9:00 AM - 5:00 PM" },
+            { "day": "Friday", "hours": "10:00 AM - 6:00 PM" }
+          ]
+        },
+        {
+          "name": "Dr. Rachel Kim",
+          "specialty": "Orthopedics",
+          "schedule": [
+            { "day": "Tuesday", "hours": "9:00 AM - 5:00 PM" },
+            { "day": "Thursday", "hours": "10:00 AM - 6:00 PM" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 25,
+      "name": "Harbor Health Center",
+      "location": "303 Dock St, Waterfront, City 86420",
+      "beds": 350,
+      "powerBackup": true,
+      "resources": [
+        "Emergency Room",
+        "Cardiology Department",
+        "Orthopedic Center",
+        "Rehabilitation Unit",
+        "Dialysis Center"
+      ],
+      "doctors": [
+        {
+          "name": "Dr. Thomas Anderson",
+          "specialty": "Cardiology",
+          "schedule": [
+            { "day": "Monday", "hours": "8:00 AM - 4:00 PM" },
+            { "day": "Wednesday", "hours": "9:00 AM - 5:00 PM" },
+            { "day": "Friday", "hours": "10:00 AM - 6:00 PM" }
+          ]
+        },
+        {
+          "name": "Dr. Rachel Kim",
+          "specialty": "Orthopedics",
+          "schedule": [
+            { "day": "Tuesday", "hours": "9:00 AM - 5:00 PM" },
+            { "day": "Thursday", "hours": "10:00 AM - 6:00 PM" }
+          ]
+        }
+      ]
+    }
+  ]

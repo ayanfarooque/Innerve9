@@ -4,6 +4,7 @@
     "paths": {
       "@/lib/*": ["src/lib/*"],
       "@/components/*": ["src/components/*"]
-    }
+    },
+    "jsx": "react-jsx" // Enables JSX syntax for React 17+
   }
 }
