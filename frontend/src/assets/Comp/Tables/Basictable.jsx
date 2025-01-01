@@ -1,12 +1,11 @@
-"use client"
 
-import * as React from "react"
+import React from "react"
 import {
   flexRender,
   getCoreRowModel,
   useReactTable,
   getSortedRowModel,
-  getFilteredRowModel,
+  getFilteredRowModel, 
 } from "@tanstack/react-table"
 
 import {
@@ -39,7 +38,7 @@ const Basictable = ({ data = []}) => {
   })
 
   return (
-    <div className="rounded-md border">
+    <div className="rounded-md border text-center">
       <Table>
         <TableHeader className="bg-purple-600">
           {table.getHeaderGroups().map((headerGroup) => (

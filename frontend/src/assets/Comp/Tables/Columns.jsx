@@ -9,7 +9,7 @@ export const columns = [
     accessorKey: "name",
     header: ({ column }) => {
       return (
-        <div>
+        <div className='flex flex-cols '>
           <Button
             variant="ghost"
             onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
@@ -21,7 +21,7 @@ export const columns = [
             placeholder="Search name..."
             value={(column.getFilterValue() ?? "")}
             onChange={(event) => column.setFilterValue(event.target.value)}
-            className="max-w-sm mt-2"
+            className="max-w-sm text-black"
           />
         </div>
       )
@@ -69,7 +69,7 @@ export const columns = [
           variant="ghost"
           onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
         >
-          Oxygen Cylinders
+          O2 Cylynder
           {column.getIsSorted() === "asc" ? (
             <ArrowUp className="ml-2 h-4 w-4" />
           ) : column.getIsSorted() === "desc" ? (
@@ -90,19 +90,19 @@ export const columns = [
     accessorKey: "resources",
     header: ({ column }) => {
       return (
-        <div>
+        <div className='flex flex-cols'>
           <Button
             variant="ghost"
             onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
           >
             Resources
-            <ArrowUpDown className="ml-2 h-4 w-4" />
+            
           </Button>
           <Input
             placeholder="Search resources..."
             value={(column.getFilterValue() ?? "")}
             onChange={(event) => column.setFilterValue(event.target.value)}
-            className="max-w-sm mt-2"
+            className="max-w-sm text-black"
           />
         </div>
       )
@@ -118,19 +118,18 @@ export const columns = [
     accessorKey: "doctors",
     header: ({ column }) => {
       return (
-        <div>
+        <div className='flex flex-cols'>
           <Button
             variant="ghost"
             onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
           >
             Doctors
-            <ArrowUpDown className="ml-2 h-4 w-4" />
           </Button>
           <Input
             placeholder="Search doctors..."
             value={(column.getFilterValue() ?? "")}
             onChange={(event) => column.setFilterValue(event.target.value)}
-            className="max-w-sm mt-2"
+            className="max-w-sm text-black"
           />
         </div>
       )
