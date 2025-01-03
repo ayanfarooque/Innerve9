@@ -45,7 +45,7 @@ const Hospitaldashboard = () => {
     <div className=" bg-[#f3efff]">
       <Header/>
       
-      <div className="container mx-auto p-4 py-14">
+      <div className="container mx-auto px-14 py-14">
       <div className="mb-6 flex justify-center space-x-[600px]">
         <div className='flex space-x-5'>
         <Button

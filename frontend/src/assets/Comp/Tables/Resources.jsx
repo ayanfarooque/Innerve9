@@ -1,0 +1,170 @@
+import React from 'react'
+import { ArrowUpDown, ArrowUp, ArrowDown } from 'lucide-react'
+import { Button } from "@/components/ui/button"
+import { Input } from "@/components/ui/input"
+import Header from '../Header/Header'
+import data from './data.json'
+import {
+  flexRender,
+  getCoreRowModel,
+  useReactTable,
+  getSortedRowModel,
+  getFilteredRowModel, 
+} from "@tanstack/react-table"
+
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/table"
+import SideBar from '../SideBar/SideBar'
+import Footer from '../Footer/Footer'
+
+
+const Resources = () => {
+    const columns = [
+        {
+          accessorKey: "name",
+          header: ({ column }) => {
+            return (
+              <div className='flex flex-cols '>
+                <Button
+                  variant="ghost"
+                  onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+                >
+                  Name
+                  <ArrowUpDown className="ml-2 h-4 w-4" />
+                </Button>
+                <Input
+                  placeholder="Search name..."
+                  value={(column.getFilterValue() ?? "")}
+                  onChange={(event) => column.setFilterValue(event.target.value)}
+                  className="max-w-sm text-black"
+                />
+              </div>
+            )
+          },
+        },
+        {
+          accessorKey: "location",
+          header: ({ column }) => {
+            return (
+              <Button
+                variant="ghost"
+                onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+              >
+                Location
+                <ArrowUpDown className="ml-2 h-4 w-4" />
+              </Button>
+            )
+          },
+        },
+        {
+            accessorKey: "powerBackup",
+            header: "Power Backup",
+            cell: ({ row }) => (row.getValue("powerBackup") ? "Yes" : "No"),
+        },
+        {
+            accessorKey: "resources",
+            header: ({ column }) => {
+              return (
+                <div className='flex flex-cols'>
+                  <Button
+                    variant="ghost"
+                    onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+                  >
+                    Resources
+                    
+                  </Button>
+                  <Input
+                    placeholder="Search resources..."
+                    value={(column.getFilterValue() ?? "")}
+                    onChange={(event) => column.setFilterValue(event.target.value)}
+                    className="max-w-sm text-black"
+                  />
+                </div>
+              )
+            },
+            cell: ({ row }) => (row.getValue("resources") ?? []).join(", "),
+            filterFn: (row, id, value) => {
+              return (row.getValue(id) ?? []).some(resource => 
+                resource.toLowerCase().includes((value ?? "").toLowerCase())
+              )
+            },
+          }]
+
+        const [sorting, setSorting] = React.useState([])
+          const [columnFilters, setColumnFilters] = React.useState([])
+        
+          const table = useReactTable({
+            data,
+            columns,
+            getCoreRowModel: getCoreRowModel(),
+            onSortingChange: setSorting,
+            getSortedRowModel: getSortedRowModel(),
+            getFilteredRowModel: getFilteredRowModel(),
+            onColumnFiltersChange: setColumnFilters,
+            state: {
+              sorting,
+              columnFilters,
+            },
+        })
+  return (
+    <div>
+    <Header/>
+    <div className='min-h-screen flex flex-cols max-w-screen'>
+            <SideBar/>
+          <div className="rounded-md border text-center ">
+            <Table className='border border-black w-[1150px]'>
+              <TableHeader className="bg-gradient-to-r from-purple-600 to-purple-800">
+                {table.getHeaderGroups().map((headerGroup) => (
+                  <TableRow key={headerGroup.id}>
+                    {headerGroup.headers.map((header) => {
+                      return (
+                        <TableHead key={header.id} className="text-white text-center">
+                          {header.isPlaceholder
+                            ? null
+                            : flexRender(
+                                header.column.columnDef.header,
+                                header.getContext()
+                              )}
+                        </TableHead>
+                      )
+                    })}
+                  </TableRow>
+                ))}
+              </TableHeader>
+              <TableBody>
+                {table.getRowModel().rows?.length ? (
+                  table.getRowModel().rows.map((row) => (
+                    <TableRow
+                      key={row.id}
+                      data-state={row.getIsSelected() && "selected"}
+                    >
+                      {row.getVisibleCells().map((cell) => (
+                        <TableCell key={cell.id}>
+                          {flexRender(cell.column.columnDef.cell, cell.getContext())}
+                        </TableCell>
+                      ))}
+                    </TableRow>
+                  ))
+                ) : (
+                  <TableRow>
+                    <TableCell colSpan={columns.length} className="h-24 text-center">
+                      No results.
+                    </TableCell>
+                  </TableRow>
+                )}
+              </TableBody>
+            </Table>
+          </div>   
+    </div>
+    <Footer/>
+    </div>
+  )
+}
+
+export default Resources

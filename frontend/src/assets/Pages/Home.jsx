@@ -44,7 +44,7 @@ const Home = () => {
       <Ribbon/>
       <Header/>
       <h1 className=" flex justify-center text-5xl font-semibold text-[#4A148C] pt-10">Hospital Resource Portal</h1>
-      <div className="container mx-auto px-32 py-16">
+      <div className="container mx-auto px-72 py-16">
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
         {cards.map((card) => (
           <a key={card.title} href={card.href} className="w-full">
