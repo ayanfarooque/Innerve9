@@ -10,7 +10,8 @@ const SearchLayout = () => {
   return (
     <div>
       <Header/>
-      <div >
+      <h1 className="flex justify-center text-center text-3xl font-semibold text-[#4A148C] py-5">Search</h1>
+      <div className='flex flex-cols'>
         <SideBar/>
       </div>
       <Footer/>

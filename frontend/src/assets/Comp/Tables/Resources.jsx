@@ -27,6 +27,11 @@ import Footer from '../Footer/Footer'
 const Resources = () => {
     const columns = [
         {
+        accessorKey: "id",
+        header: "ID",
+        cell: ({ row }) => (row.getValue('id')),
+        },
+        {
           accessorKey: "name",
           header: ({ column }) => {
             return (
@@ -115,7 +120,7 @@ const Resources = () => {
   return (
     <div>
     <Header/>
-    <div className='min-h-screen flex flex-cols max-w-screen'>
+    <div className='flex flex-cols max-w-screen'>
             <SideBar/>
           <div className="rounded-md border text-center ">
             <Table className='border border-black w-[1150px]'>

@@ -27,6 +27,11 @@ import Footer from '../Footer/Footer'
 const Beds = () => {
     const columns = [
         {
+        accessorKey: "id",
+        header: "ID",
+        cell: ({ row }) => (row.getValue('id')),
+        },
+        {
           accessorKey: "name",
           header: ({ column }) => {
             return (
@@ -107,7 +112,7 @@ const Beds = () => {
   return (
     <div>
     <Header/>
-    <div className='min-h-screen flex flex-cols min-w-screen'>
+    <div className='flex flex-cols min-w-screen'>
             <SideBar/>
           <div className="rounded-md border text-center ">
             <Table className='border border-black min-w-[1150px]'>

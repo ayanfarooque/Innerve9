@@ -1,6 +1,6 @@
 import React from 'react';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
-import doctorsDetailed from './Doctors.json'; // Import your JSON file
+import doctorsDetailed from './Doctors.json'; 
 
 const DoctorModal = ({ doctor, isOpen, onClose }) => {
   // Find the doctorI by ID in the imported JSON file

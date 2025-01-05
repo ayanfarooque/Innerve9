@@ -4,7 +4,7 @@ import { Card, CardHeader, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { ScrollArea } from "@/components/ui/scroll-area";
-import { FireExtinguisher, PackageOpen,BriefcaseMedical, Users, GraduationCap, Calendar, PresentationIcon as PresentationChart, Briefcase, Bed, Menu } from 'lucide-react';
+import { FireExtinguisher, PackageOpen,BriefcaseMedical,BookHeart, Bed, Menu, Syringe } from 'lucide-react';
 
 
 
@@ -17,6 +17,8 @@ const SideBar = () => {
     { name: "Oxygen Cylinders", path: "/oxygen-cylinder", icon: <FireExtinguisher className="w-4 h-4" /> },
     { name: "Resources", path: "/resources", icon: <PackageOpen className="w-4 h-4" /> },
     { name: "Doctors", path: "/doctors", icon: <BriefcaseMedical className="w-4 h-4" /> },
+    { name: "Organs", path: "/organs", icon: <BookHeart className="w-4 h-4" />},
+    { name: "Blood", path: "/bloodtable", icon: <Syringe className="w-4 h-4" />},
   ];
 
   const NavigationContent = () => (
@@ -48,7 +50,7 @@ const SideBar = () => {
     </nav>);
   
   return (
-    <div className='border border-black'>
+    <div className='max-h-[502px]'>
     {/* Mobile Navigation */}
     <Sheet open={isOpen} onOpenChange={setIsOpen}>
       <SheetTrigger asChild>
@@ -72,12 +74,12 @@ const SideBar = () => {
     </Sheet>
 
     {/* Desktop Navigation */}
-    <Card className="hidden md:block w-96 rounded-none overflow-hidden shadow-lg">
+    <Card className="hidden md:block w-96 rounded-none overflow-hidden shadow-lg h-[500px]">
       <CardHeader className="bg-gradient-to-r from-purple-600 to-purple-800 py-[10px] px-4">
         <h2 className="text-xl font-bold text-white text-center">Search Navigation</h2>
       </CardHeader>
       <CardContent className="p-0 items-left">
-        <ScrollArea className="h-screen">
+        <ScrollArea>
           <NavigationContent />
         </ScrollArea>
       </CardContent>

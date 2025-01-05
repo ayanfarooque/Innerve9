@@ -24,7 +24,7 @@ import SideBar from '../SideBar/SideBar'
 import Footer from '../Footer/Footer'
 
 
-const Doctors = () => {
+const Bloodtable = () => {
     const columns = [
         {
         accessorKey: "id",
@@ -73,7 +73,7 @@ const Doctors = () => {
             cell: ({ row }) => (row.getValue("powerBackup") ? "Yes" : "No"),
         },
         {
-            accessorKey: "doctors",
+            accessorKey: "blood",
             header: ({ column }) => {
               return (
                 <div className='flex flex-cols'>
@@ -81,10 +81,11 @@ const Doctors = () => {
                     variant="ghost"
                     onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
                   >
-                    Doctors
+                    Blood
+                    
                   </Button>
                   <Input
-                    placeholder="Search doctors..."
+                    placeholder="Search blood..."
                     value={(column.getFilterValue() ?? "")}
                     onChange={(event) => column.setFilterValue(event.target.value)}
                     className="max-w-sm text-black"
@@ -92,11 +93,10 @@ const Doctors = () => {
                 </div>
               )
             },
-            cell: ({ row }) => (row.getValue("doctors") ?? []).map(doctor => doctor.name).join(", "),
+            cell: ({ row }) => (row.getValue("blood") ?? []).join(", "),
             filterFn: (row, id, value) => {
-              return (row.getValue(id) ?? []).some(doctor => 
-                doctor.name.toLowerCase().includes((value ?? "").toLowerCase()) ||
-                doctor.specialty.toLowerCase().includes((value ?? "").toLowerCase())
+              return (row.getValue(id) ?? []).some(resource => 
+                resource.toLowerCase().includes((value ?? "").toLowerCase())
               )
             },
           }]
@@ -120,7 +120,7 @@ const Doctors = () => {
   return (
     <div>
     <Header/>
-    <div className='flex flex-cols max-w-screen'>
+    <div className='flex flex-cols min-w-screen'>
             <SideBar/>
           <div className="rounded-md border text-center ">
             <Table className='border border-black min-w-[1150px]'>
@@ -172,4 +172,4 @@ const Doctors = () => {
   )
 }
 
-export default Doctors
+export default Bloodtable

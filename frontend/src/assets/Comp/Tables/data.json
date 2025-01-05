@@ -13,6 +13,20 @@
         "Surgery Center",
         "Maternity Ward"
       ],
+      "organs": [
+      "Heart",
+      "Kidneys",
+      "Liver",
+      "Lungs",
+      "Pancreas",
+      "Corneas",
+      "Bone Marrow"
+    ],
+    "blood" : [
+        "A+",
+        "A-",
+        "AB+"
+      ],
       "doctors": [
         {
           "name": "Dr. John Doe",
@@ -45,6 +59,20 @@
         "Oncology Department",
         "Rehabilitation Center",
         "Diagnostic Imaging"
+      ],
+      "organs": [
+      "Heart",
+      "Kidneys",
+      "Liver",
+      "Lungs",
+      "Pancreas",
+      "Corneas",
+      "Bone Marrow"
+    ],
+    "blood" : [
+        "A+",
+        "A-",
+        "AB+"
       ],
       "doctors": [
         {
@@ -80,6 +108,20 @@
         "Orthopedic Center",
         "Pediatric Unit"
       ],
+      "organs": [
+      "Heart",
+      "Kidneys",
+      "Liver",
+      "Lungs",
+      "Pancreas",
+      "Corneas",
+      "Bone Marrow"
+    ],
+    "blood" : [
+        "A+",
+        "A-",
+        "AB+"
+      ],
       "doctors": [
         {
           "name": "Dr. David Lee",
@@ -112,6 +154,20 @@
         "Maternity Ward",
         "General Surgery",
         "Outpatient Clinic"
+      ],
+      "organs": [
+      "Heart",
+      "Kidneys",
+      "Liver",
+      "Lungs",
+      "Pancreas",
+      "Corneas",
+      "Bone Marrow"
+    ],
+    "blood" : [
+        "A+",
+        "A-",
+        "AB+"
       ],
       "doctors": [
         {
@@ -148,6 +204,20 @@
         "Neuroscience Center",
         "Transplant Center"
       ],
+      "blood" : [
+        "A+",
+        "A-",
+        "AB+"
+      ],
+      "organs": [
+      "Heart",
+      "Kidneys",
+      "Liver",
+      "Lungs",
+      "Pancreas",
+      "Corneas",
+      "Bone Marrow"
+    ],
       "doctors": [
         {
           "name": "Dr. Michael Chang",
@@ -181,6 +251,20 @@
         "Orthopedic Center",
         "Rehabilitation Unit",
         "Dialysis Center"
+      ],
+      "organs": [
+      "Heart",
+      "Kidneys",
+      "Liver",
+      "Lungs",
+      "Pancreas",
+      "Corneas",
+      "Bone Marrow"
+    ],
+    "blood" : [
+        "A+",
+        "A-",
+        "AB+"
       ],
       "doctors": [
         {
@@ -216,6 +300,20 @@
         "Surgery Center",
         "Maternity Ward"
       ],
+      "organs": [
+      "Heart",
+      "Kidneys",
+      "Liver",
+      "Lungs",
+      "Pancreas",
+      "Corneas",
+      "Bone Marrow"
+    ],
+    "blood" : [
+        "A+",
+        "A-",
+        "AB+"
+      ],
       "doctors": [
         {
           "name": "Dr. John Doe",
@@ -248,6 +346,20 @@
         "Oncology Department",
         "Rehabilitation Center",
         "Diagnostic Imaging"
+      ],
+      "organs": [
+      "Heart",
+      "Kidneys",
+      "Liver",
+      "Lungs",
+      "Pancreas",
+      "Corneas",
+      "Bone Marrow"
+    ],
+    "blood" : [
+        "A+",
+        "A-",
+        "AB+"
       ],
       "doctors": [
         {
@@ -283,6 +395,20 @@
         "Orthopedic Center",
         "Pediatric Unit"
       ],
+      "organs": [
+      "Heart",
+      "Kidneys",
+      "Liver",
+      "Lungs",
+      "Pancreas",
+      "Corneas",
+      "Bone Marrow"
+    ],
+    "blood" : [
+        "A+",
+        "A-",
+        "AB+"
+      ],
       "doctors": [
         {
           "name": "Dr. David Lee",
@@ -315,6 +441,20 @@
         "Maternity Ward",
         "General Surgery",
         "Outpatient Clinic"
+      ],
+      "organs": [
+      "Heart",
+      "Kidneys",
+      "Liver",
+      "Lungs",
+      "Pancreas",
+      "Corneas",
+      "Bone Marrow"
+    ],
+    "blood" : [
+        "A+",
+        "A-",
+        "AB+"
       ],
       "doctors": [
         {
@@ -351,6 +491,20 @@
         "Neuroscience Center",
         "Transplant Center"
       ],
+      "organs": [
+      "Heart",
+      "Kidneys",
+      "Liver",
+      "Lungs",
+      "Pancreas",
+      "Corneas",
+      "Bone Marrow"
+    ],
+      "blood" : [
+        "A+",
+        "A-",
+        "AB+"
+      ],
       "doctors": [
         {
           "name": "Dr. Michael Chang",
@@ -385,6 +539,20 @@
         "Rehabilitation Unit",
         "Dialysis Center"
       ],
+      "organs": [
+      "Heart",
+      "Kidneys",
+      "Liver",
+      "Lungs",
+      "Pancreas",
+      "Corneas",
+      "Bone Marrow"
+    ],
+      "blood" : [
+        "A+",
+        "A-",
+        "AB+"
+      ],
       "doctors": [
         {
           "name": "Dr. Thomas Anderson",
@@ -417,6 +585,20 @@
         "Orthopedic Center",
         "Rehabilitation Unit",
         "Dialysis Center"
+      ],
+      "organs": [
+      "Heart",
+      "Kidneys",
+      "Liver",
+      "Lungs",
+      "Pancreas",
+      "Corneas",
+      "Bone Marrow"
+    ],
+      "blood" : [
+        "A+",
+        "A-",
+        "AB+"
       ],
       "doctors": [
         {
