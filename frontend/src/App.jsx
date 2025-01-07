@@ -14,7 +14,16 @@ import Basictable from './assets/Comp/Tables/Basictable';
 import Bloodtable from './assets/Comp/Tables/BloodTable'
 import Admin from './assets/Pages/Admin/Admin';
 import AdminEdit from './assets/Pages/Admin/AdminEdit';
-import Blood from './assets/Pages/Blood/Blood'
+import Blood from './assets/Pages/Blood/BloodLayout'
+import BloodLayout from './assets/Pages/Blood/BloodLayout';
+import Apositive from './assets/Pages/Blood/Apositive';
+import Anegative from './assets/Pages/Blood/Anegative';
+import Bpositive from './assets/Pages/Blood/Bpositive';
+import Bnegative from './assets/Pages/Blood/Bnegative';
+import ABpositive from './assets/Pages/Blood/ABpositive';
+import ABnegative from './assets/Pages/Blood/ABnegative';
+import Opositive from './assets/Pages/Blood/Opositive';
+import Onegative from './assets/Pages/Blood/Onegative';
 
 const App = () => {
     
@@ -34,7 +43,15 @@ const App = () => {
         <Route path="/organs"  element={<Organs/>}/>
         <Route path="/basictable" element={<Basictable/>}/>
         <Route path="/bloodtable" element={<Blood/>}/>
-        <Route path="/blood" element={<Blood/>}/>
+        <Route path="/blood" element={<BloodLayout/>}/>
+        <Route path="/apositive" element={<Apositive/>}/>
+        <Route path='/anegative' element={<Anegative/>}/>
+        <Route path="/bpositive" element={<Bpositive/>}/>
+        <Route path='/bnegative' element={<Bnegative/>}/>
+        <Route path="/abpositive" element={<ABpositive/>}/>
+        <Route path='/abnegative' element={<ABnegative/>}/>
+        <Route path="/opositive" element={<Opositive/>}/>
+        <Route path='/onegative' element={<Onegative/>}/>
       </Routes>
     </>
   )
