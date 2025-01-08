@@ -102,8 +102,9 @@ const ABpositive = () => {
     })
 
   return (
-    <div>
+    <div className="bg-[#f3efff]">
     <Header/>
+    <h1 className="flex justify-center text-4xl font-semibold text-[#4A148C] p-10">Blood</h1>
     <div className='flex flex-cols min-w-screen'>
             <SideBar2/>
           <div className="rounded-md border text-center ">

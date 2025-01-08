@@ -50,7 +50,7 @@ const SideBar = () => {
     </nav>);
   
   return (
-    <div className='max-h-[502px]'>
+    <div className='max-h-[502px] bg-[#f3efff]'>
     {/* Mobile Navigation */}
     <Sheet open={isOpen} onOpenChange={setIsOpen}>
       <SheetTrigger asChild>
@@ -74,11 +74,11 @@ const SideBar = () => {
     </Sheet>
 
     {/* Desktop Navigation */}
-    <Card className="hidden md:block w-96 rounded-none overflow-hidden shadow-lg h-[500px]">
+    <Card background="custom" className="hidden md:block w-96 rounded-none overflow-hidden shadow-lg h-[500px]">
       <CardHeader className="bg-gradient-to-r from-purple-600 to-purple-800 py-[10px] px-4">
         <h2 className="text-xl font-bold text-white text-center">Search Navigation</h2>
       </CardHeader>
-      <CardContent className="p-0 items-left">
+      <CardContent className="p-0 items-left bg-[#f3efff]">
         <ScrollArea>
           <NavigationContent />
         </ScrollArea>

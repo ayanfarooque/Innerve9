@@ -101,7 +101,7 @@ const AdminEdit = () => {
     }
 
   return (
-    <div>
+    <div className="bg-[#f3efff]">
     <Header/>
     <form onSubmit={handleSubmit} className="space-y-6 p-14">
       <Card>

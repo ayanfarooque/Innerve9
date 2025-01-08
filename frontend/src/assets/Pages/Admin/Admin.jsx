@@ -13,7 +13,7 @@ const Admin = () => {
     
 
   return (
-    <div>
+    <div className="bg-[#f3efff]">
       <Header/>
       <h1 className=" flex justify-center text-5xl font-semibold text-[#4A148C] pt-10">Admin Portal</h1>
       <div className='pt-10 pl-14'>

@@ -8,7 +8,7 @@ import sampledata from '../../Comp/Tables/data.json'
 
 const SearchLayout = () => {
   return (
-    <div>
+    <div className="bg-[#f3efff]">
       <Header/>
       <h1 className="flex justify-center text-center text-3xl font-semibold text-[#4A148C] py-5">Search</h1>
       <div className='flex flex-cols'>

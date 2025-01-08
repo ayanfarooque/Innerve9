@@ -20,7 +20,8 @@ const SideBar2 = () => {
     { name: "AB+", path: "/abpositive", icon: <Syringe className="w-4 h-4" />},
     { name: "AB-", path: "/abnegative", icon: <Syringe className="w-4 h-4" />},
     { name: "O+", path: "/opositive", icon: <Syringe className="w-4 h-4" />},
-    { name: "O-", path: "/onegative", icon: <Syringe className="w-4 h-4" />}
+    { name: "O-", path: "/onegative", icon: <Syringe className="w-4 h-4" />},
+    { name: "Donate Blood", path: "/donate", icon: <Syringe className="w-4 h-4" />},
   ];
 
   const NavigationContent = () => (
@@ -76,7 +77,7 @@ const SideBar2 = () => {
     </Sheet>
 
     {/* Desktop Navigation */}
-    <Card className="hidden md:block w-96 rounded-none overflow-hidden shadow-lg h-[500px]">
+    <Card background="custom" className="hidden md:block w-96 rounded-none overflow-hidden shadow-lg ">
       <CardHeader className="bg-gradient-to-r from-purple-600 to-purple-800 py-[10px] px-4">
         <h2 className="text-xl font-bold text-white text-center">Search Navigation</h2>
       </CardHeader>

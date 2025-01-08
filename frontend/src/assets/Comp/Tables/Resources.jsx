@@ -118,8 +118,9 @@ const Resources = () => {
             },
         })
   return (
-    <div>
+    <div className="bg-[#f3efff]">
     <Header/>
+    <h1 className="flex justify-center text-center text-3xl font-semibold text-[#4A148C] py-5">Search</h1>
     <div className='flex flex-cols max-w-screen'>
             <SideBar/>
           <div className="rounded-md border text-center ">

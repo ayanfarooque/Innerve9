@@ -45,7 +45,7 @@ const AdminLayout = () => {
   const hospital = data[0]; // Correctly access the first object from the array
 
   return (
-    <div>
+    <div className="bg-[#f3efff]">
       <div className="space-y-6 p-14">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <Card className="w-full">
