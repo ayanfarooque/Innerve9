@@ -1,23 +1,30 @@
 const express = require('express');
 const app = express();
 const PORT = 3000;
-const dotenv = require('dotenv');
-const connectDB = require('./db.js');
+const { initDatabase } = require('./schemas/db');
 
-dotenv.config();
-
-connectDB();
+initDatabase();
 app.use(express.json());
 
-// Import routes
-const generalRoutes = require('./routes/general');
-const bloodRoutes = require('./routes/blood');
-const docRoutes = require('./routes/doc');
 const { handleNotFound } = require('./controllers/error_controller');
+const bedRouter = require('./routes/bed');
+const bloodRouter = require('./routes/blood');
+const dashboardRouter = require('./routes/dashboard');
+const hospitalRouter = require('./routes/dashboardHospital');
+const organRouter = require('./routes/organ');
+const resourceRouter = require('./routes/resource');
+const userRouter = require('./routes/user');
 
-app.use('/general', generalRoutes);
-app.use('/blood', bloodRoutes);
-app.use('/doc', docRoutes);
+app.use('/api/dashboard', dashboardRouter);
+app.use('/api/dashboard/hospital', hospitalRouter);
+
+app.use('/api/search/beds', bedRouter);
+app.use('/api/search/blood', bloodRouter);
+app.use('/api/search/resource', resourceRouter);
+app.use('/api/search/organ', organRouter);
+
+app.use('/api/user',userRouter);
+
 app.all('*', handleNotFound);
 
 app.listen(PORT, () => {
