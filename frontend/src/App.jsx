@@ -24,6 +24,7 @@ import Opositive from './assets/Pages/Blood/Opositive';
 import Onegative from './assets/Pages/Blood/Onegative';
 import Donate from './assets/Pages/Blood/Donate';
 import DonateLayout from './assets/Pages/Blood/DonateLayout';
+import AuthPage from './assets/Pages/Admin/AuthPage';
 
 const App = () => {
     
@@ -56,9 +57,9 @@ const App = () => {
             <Route path='/onegative' element={<Onegative/>}/>
             <Route path='/donate' element={<DonateLayout/>}/>
           
-          
-          <Route path="admin" element={<Admin/>}/>
-          <Route path="/adminedit" element={<AdminEdit/>}/>
+          <Route path="/authpage" element={<AuthPage/>}/>
+            <Route path="/authpage/admin" element={<Admin/>}/>
+            <Route path="/adminedit" element={<AdminEdit/>}/>
         
       </Routes>
     </>

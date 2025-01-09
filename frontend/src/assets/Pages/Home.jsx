@@ -26,7 +26,7 @@ const Home = () => {
         {
             title: "Admin",
             description: "Update and Upload Dashboard",
-            href: "admin",
+            href: "/authpage",
             icon: <img src="src\assets\Logo\admin.png" alt="Admin Icon" className="h-14 w-14"/>,
         }
 
