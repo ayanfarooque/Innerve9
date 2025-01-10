@@ -92,6 +92,17 @@ const ResourceSchema = new mongoose.Schema({
   }
 });
 
+const OxygenSchema = new mongoose.Schema({
+  hospitalId: {
+    type: mongoose.Schema.ObjectId,
+    required: true
+  },
+  amount: {
+    type: Number,
+    required: true
+  }
+});
+
 const UserSchema = new mongoose.Schema({
   email: {
     type: String,
@@ -110,8 +121,9 @@ const UserSchema = new mongoose.Schema({
 const hospitalModel = mongoose.model("hospitals", HospitalSchema);
 const doctorModel = mongoose.model("doctors", DoctorSchema);
 const bloodModel = mongoose.model("blood", BloodSchema);
-const organModel = mongoose.model("organ", OrganSchema);
+const organModel = mongoose.model("organs", OrganSchema);
 const resourceModel = mongoose.model("resources", ResourceSchema);
+const oxygenModel = mongoose.model("oxygens", OxygenSchema);
 
 const userModel = mongoose.model("user", UserSchema);
 
@@ -121,7 +133,7 @@ module.exports = {
   doctorModel,
   bloodModel,
   organModel,
-  
   resourceModel,
+  oxygenModel,
   userModel
 };

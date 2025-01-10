@@ -17,6 +17,7 @@ const organRouter = require('./routes/organ');
 const resourceRouter = require('./routes/resource');
 const userRouter = require('./routes/user');
 const doctorRouter = require('./routes/doctor');
+const oxygenRouter = require('./routes/oxygen');
 
 app.use('/api/dashboard', dashboardRouter);
 app.use('/api/dashboard/hospital', hospitalRouter);
@@ -26,6 +27,7 @@ app.use('/api/search/blood', bloodRouter);
 app.use('/api/search/resource', resourceRouter);
 app.use('/api/search/organ', organRouter);
 app.use('/api/search/doctor', doctorRouter);
+app.use('/api/search/oxygen', oxygenRouter);
 
 app.use('/api/user',userRouter);
 

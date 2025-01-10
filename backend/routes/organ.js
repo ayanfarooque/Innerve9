@@ -1,18 +1,29 @@
 const express = require('express');
-const {organModel} = require('../schemas/db');
+const {organModel, hospitalModel} = require('../schemas/db');
 
 const orgranRouter = express.Router();
 
 orgranRouter.get('/', async (_request, _response) => {
 
     try {
-
-        
-        const data = await organModel.find({});
+        const organData = await organModel.find({});
+        const hospitalData = await hospitalModel.find({});
+        let data = []
+    
+        organData.map(organ => {
+            hospitalData.map(hospital => {
+                if(organ.hospitalid == hospital.id) 
+                    data.push({
+                        hospital,
+                       organ 
+                    });
+            });
+        });
+    
         console.log(data);
-
+    
         return _response.json({
-            message: "data fetched successfully",
+            "Message": "welcome to the organ router",
             data: data
         });
 
