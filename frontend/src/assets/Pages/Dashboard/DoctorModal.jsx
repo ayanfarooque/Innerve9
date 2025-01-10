@@ -42,17 +42,9 @@ const DoctorModal = ({ doctor, isOpen, onClose }) => {
           {/* Schedule Section */}
           <div>
             <h4 className="font-medium mb-2">Schedule</h4>
-            {Array.isArray(schedule) && schedule.length > 0 ? (
               <ul>
-                {schedule.map((slot, index) => (
-                  <li key={index}>
-                    {slot.day}: {slot.hours}
-                  </li>
-                ))}
+               {schedule} 
               </ul>
-            ) : (
-              <p>No schedule available</p>
-            )}
           </div>
         </div>
       </DialogContent>

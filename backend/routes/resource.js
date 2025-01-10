@@ -1,5 +1,5 @@
 const express = require('express');
-const {resourceModel} = require('../schemas/db');
+const {resourceModel, hospitalModel} = require('../schemas/db');
 
 const resourceRouter = express.Router();
 
@@ -7,7 +7,23 @@ resourceRouter.get('/', async (_request, _response) => {
 
     try {
 
-        const data = await resourceModel.find({});
+        const resourceData = await resourceModel.find({});
+        const hospitalData = await hospitalModel.find({});
+        let data = [];
+
+        hospitalData.map(hospital => {
+            let resourceString = "";
+            console.log(hospital.id);
+            resourceData.map(resource => {
+                console.log(resource)
+                if(resource.hospitalId == hospital.id) resourceString = resourceString + ', ' + resource.resourceName;
+            });
+            data.push({
+                hospital, 
+                resourceString 
+            });
+        });
+
         console.log(data);
 
         return _response.json({

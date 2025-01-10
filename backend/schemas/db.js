@@ -19,6 +19,7 @@ const HospitalSchema = new mongoose.Schema({
   beds: {
     type: Number,
     required: true
+
   },
   location: {
     type: String,
@@ -45,11 +46,11 @@ const DoctorSchema = new mongoose.Schema({
     required: true
   },
   schedule: {
-    type: [String],
+    type: String,
     required: true
   },
   experience: {
-    type: Number,
+    type: String,
     required: true
   }
 });
@@ -70,11 +71,11 @@ const BloodSchema = new mongoose.Schema({
 });
 
 const OrganSchema = new mongoose.Schema({
-  hospitalId: {
+  hospitalid: {
     type: mongoose.Schema.ObjectId,
     required: true
   },
-  organName: {
+  organname: {
     type: String,
     required: true
   }
@@ -98,7 +99,7 @@ const UserSchema = new mongoose.Schema({
   },
   password: {
     type: String,
-    required: string
+    required: String
   }, 
   hospitalId: {
     type: mongoose.Schema.ObjectId,
@@ -107,10 +108,11 @@ const UserSchema = new mongoose.Schema({
 });
 
 const hospitalModel = mongoose.model("hospitals", HospitalSchema);
-const doctorModel = mongoose.model("doctor", DoctorSchema);
+const doctorModel = mongoose.model("doctors", DoctorSchema);
 const bloodModel = mongoose.model("blood", BloodSchema);
 const organModel = mongoose.model("organ", OrganSchema);
-const resourceModel = mongoose.model("resource", ResourceSchema);
+const resourceModel = mongoose.model("resources", ResourceSchema);
+
 const userModel = mongoose.model("user", UserSchema);
 
 module.exports = {
@@ -119,6 +121,7 @@ module.exports = {
   doctorModel,
   bloodModel,
   organModel,
+  
   resourceModel,
   userModel
 };

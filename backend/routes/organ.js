@@ -7,6 +7,7 @@ orgranRouter.get('/', async (_request, _response) => {
 
     try {
 
+        
         const data = await organModel.find({});
         console.log(data);
 

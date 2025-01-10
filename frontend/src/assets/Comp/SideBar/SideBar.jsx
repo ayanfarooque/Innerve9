@@ -20,6 +20,7 @@ const SideBar = () => {
     { name: "Organs", path: "/organs", icon: <BookHeart className="w-4 h-4" />},
     { name: "Blood", path: "/bloodtable", icon: <Syringe className="w-4 h-4" />},
   ];
+   
 
   const NavigationContent = () => (
     <nav>

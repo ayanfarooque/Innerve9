@@ -3,7 +3,6 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/u
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 const HospitalModal = ({ hospital, isOpen, onClose }) => {
-
     if (!hospital) return null;
 
   return (
@@ -11,7 +10,7 @@ const HospitalModal = ({ hospital, isOpen, onClose }) => {
     <Dialog open={isOpen} onOpenChange={onClose}>
       <DialogContent >
         <DialogHeader>
-          <DialogTitle>{hospital.name}</DialogTitle>
+          <DialogTitle>{hospital.hospital.name}</DialogTitle>
         </DialogHeader>
         <div className="grid gap-4 py-4 ">
           <div className='grid grid-cols-2 gap-4'>
@@ -21,13 +20,13 @@ const HospitalModal = ({ hospital, isOpen, onClose }) => {
             </CardHeader>
             <CardContent>
               <p>
-                <strong>Location:</strong> {hospital.location}
+                <strong>Location:</strong> {hospital.hospital.location}
               </p>
               <p>
-                <strong>Number of Beds:</strong> {hospital.beds}
+                <strong>Number of Beds:</strong> {hospital.hospital.beds}
               </p>
               <p>
-                <strong>Power Backup:</strong> {hospital.powerBackup ? "Yes" : "No"}
+                <strong>Power Backup:</strong> {hospital.hospital.powerBackup ? "Yes" : "No"}
               </p>
             </CardContent>
           </Card>
@@ -37,11 +36,17 @@ const HospitalModal = ({ hospital, isOpen, onClose }) => {
               <CardTitle>Resources</CardTitle>
             </CardHeader>
             <CardContent>
-              <ul className="list-disc pl-5">
-                {hospital.resources.map((resource, index) => (
-                  <li key={index}>{resource}</li>
-                ))}
-              </ul>
+              {hospital.resourceAttached.length == 0 
+                  ? 
+                  <div>No resources available</div> 
+                  : 
+                  <ul className="list-disc pl-5">
+                    {hospital.resourceAttached.map((resource, index) => (
+                      <li key={index}>{resource.resourceName}</li>
+                    ))}
+                </ul>
+              }
+
             </CardContent>
           </Card>
           </div>
@@ -51,17 +56,15 @@ const HospitalModal = ({ hospital, isOpen, onClose }) => {
               <CardTitle>Doctors</CardTitle>
             </CardHeader>
             <CardContent>
-              {hospital.doctors.map((doctor, index) => (
+              {hospital.doctorsAttached.map((doctor, index) => (
                 <div key={index} className="mb-4 last:mb-0">
                   <h3 className="text-lg font-semibold">
                     {doctor.name} - {doctor.specialty}
                   </h3>
                   <ul className="list-disc pl-5">
-                    {doctor.schedule.map((slot, slotIndex) => (
-                      <li key={slotIndex}>
-                        {slot.day}: {slot.hours}
+                      <li>
+                        {doctor.schedule}
                       </li>
-                    ))}
                   </ul>
                 </div>
               ))}

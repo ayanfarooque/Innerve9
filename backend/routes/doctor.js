@@ -1,9 +1,9 @@
 const express = require('express');
 const { hospitalModel, doctorModel, resourceModel } = require('../schemas/db')
 
-const hospitalRouter = express.Router();
+const doctorRouter = express.Router();
 
-hospitalRouter.get('/', async (_request, _response) => {
+doctorRouter.get('/', async (_request, _response) => {
 
     try {
 
@@ -15,12 +15,13 @@ hospitalRouter.get('/', async (_request, _response) => {
 
         hospitals.map(hospital => {
             console.log(hospital.name  + "+" + hospital.id)
-            let doctorsAttached = [];
+            let doctorsString = "";
             let resourceAttached = [];
             doctors.map(doctor => {
                 if(doctor.hospitalId.includes(hospital.id)) { // Check if hospital.id is in doctor.hospitalId array
                     console.log(doctor.hospitalId + "+" + doctor.id + "👍🏾");
-                    doctorsAttached.push(doctor);
+                    if(doctorsString.length == 0) doctorsString = doctor.name;
+                    else doctorsString = doctorsString + ", " + doctor.name;
                 } else {
                     console.log(doctor.hospitalId + "+" + doctor.id + "👎🏾");
                 }
@@ -34,7 +35,7 @@ hospitalRouter.get('/', async (_request, _response) => {
             });
             console.log("========================================")
             mainData.push({
-                hospital, doctorsAttached, resourceAttached
+                hospital, doctorsString, resourceAttached
             });
         });
 
@@ -52,26 +53,25 @@ hospitalRouter.get('/', async (_request, _response) => {
             "message": "error fetching data",
             _error
         });
-
     }
-
 });
 
-hospitalRouter.post('/', async (_request, _response) => {
+doctorRouter.post('/', async (_request, _response) => {
     return _response.json({
         "message": "Welcome to the Dashboard Hospital Router"
     });
 });
 
-hospitalRouter.delete('/', async (_request, _response) => {
+doctorRouter.delete('/', async (_request, _response) => {
     return _response.json({
         "message": "Welcome to the Dashboard Hospital Router"
     });
 });
 
-hospitalRouter.put('/', async (_request, _response) => {
+doctorRouter.put('/', async (_request, _response) => {
     return _response.json({
         "message": "Welcome to the Dashboard Hospital Router"
     });
 });
-module.exports = hospitalRouter;
+
+module.exports = doctorRouter;
