@@ -25,6 +25,8 @@ import Onegative from './assets/Pages/Blood/Onegative';
 import Donate from './assets/Pages/Blood/Donate';
 import DonateLayout from './assets/Pages/Blood/DonateLayout';
 import AuthPage from './assets/Pages/Admin/AuthPage';
+import BloodAdmin from './assets/Pages/Admin/BloodAdmin';
+import BloodEdit from './assets/Pages/Admin/BloodEdit';
 
 const App = () => {
     

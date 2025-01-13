@@ -13,7 +13,7 @@ const BloodAdmin = () => {
       <h1 className=" flex justify-center text-5xl font-semibold text-[#4A148C] pt-10">Admin Portal</h1>
       <div className='pt-10 pl-14'>
         <Button
-            onClick={() => navigate('/adminedit')}
+            onClick={() => navigate('/bloodedit')}
             className='bg-purple-600 text-white'
         >
             Edit

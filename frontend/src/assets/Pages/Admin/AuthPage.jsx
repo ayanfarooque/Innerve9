@@ -15,10 +15,10 @@ const AuthPage = () => {
     e.preventDefault();
     if (isLogin) {
       
-      navigate('admin');  // Redirect to admin after login
+      navigate('bloodadmin');  // Redirect to admin after login
     } else {
       
-      navigate('admin');  // Redirect after successful registration
+      navigate('bloodadmin');  // Redirect after successful registration
     }
   };
 
