@@ -58,6 +58,8 @@ const App = () => {
             <Route path='/donate' element={<DonateLayout/>}/>
           
           <Route path="/authpage" element={<AuthPage/>}/>
+            <Route path="/bloodedit" element={<BloodEdit/>}/>
+            <Route path="/authpage/bloodadmin" element={<BloodAdmin/>}/>
             <Route path="/authpage/admin" element={<Admin/>}/>
             <Route path="/adminedit" element={<AdminEdit/>}/>
         

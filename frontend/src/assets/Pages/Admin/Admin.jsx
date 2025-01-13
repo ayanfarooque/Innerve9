@@ -8,10 +8,7 @@ import { useNavigate } from 'react-router-dom';
 
 const Admin = () => {
 
-    const navigate = useNavigate();
-
-    
-
+  const navigate = useNavigate();
   return (
     <div className="bg-[#f3efff]">
       <Header/>
