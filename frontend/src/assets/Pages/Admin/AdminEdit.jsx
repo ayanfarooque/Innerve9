@@ -9,6 +9,7 @@ import { Textarea } from "@/components/ui/textarea"
 import { useNavigate } from 'react-router-dom';
 import Header from '@/assets/Comp/Header/Header'
 import Footer from '@/assets/Comp/Footer/Footer'
+import { PlusCircle, X } from 'lucide-react'
 
 const AdminEdit = () => {
 
@@ -61,15 +62,15 @@ const AdminEdit = () => {
       setData(prevData => ({ ...prevData, [name]: value }))
     }
   
-    const handleCheckboxChange = (e) => {
-      const { name, checked } = e.target
-      setData(prevData => ({ ...prevData, [name]: checked }))
-    }
+    // const handleCheckboxChange = (e) => {
+    //   const { name, checked } = e.target
+    //   setData(prevData => ({ ...prevData, [name]: checked }))
+    // }
   
-    const handleArrayChange = (e, field) => {
-      const value = e.target.value.split('\n').filter(item => item.trim() !== '')
-      setData(prevData => ({ ...prevData, [field]: value }))
-    }
+    // const handleArrayChange = (e, field) => {
+    //   const value = e.target.value.split('\n').filter(item => item.trim() !== '')
+    //   setData(prevData => ({ ...prevData, [field]: value }))
+    // }
   
     const handleDoctorChange = (index, field, value) => {
       setData(prevData => ({
@@ -77,6 +78,27 @@ const AdminEdit = () => {
         doctors: prevData.doctors.map((doctor, i) => 
           i === index ? { ...doctor, [field]: value } : doctor
         )
+      }))
+    }
+
+    const addResource = () => {
+      setData(prevData => ({
+        ...prevData,
+        resources: [...prevData.resources, '']
+      }))
+    }
+    
+    const removeResource = (index) => {
+      setData(prevData => ({
+        ...prevData,
+        resources: prevData.resources.filter((_, i) => i !== index)
+      }))
+    }
+    
+    const handleResourceChange = (index, value) => {
+      setData(prevData => ({
+        ...prevData,
+        resources: prevData.resources.map((resource, i) => i === index ? value : resource)
       }))
     }
   
@@ -93,6 +115,49 @@ const AdminEdit = () => {
         )
       }))
     }
+
+    const addDoctor = () => {
+      const newDoctor = {
+        name: '',
+        specialty: '',
+        schedule: [{ day: '', hours: '' }]
+      };
+      setData(prevData => ({
+        ...prevData,
+        doctors: [...prevData.doctors, newDoctor]
+      }));
+    };
+    
+    const removeDoctor = (index) => {
+      setData(prevData => ({
+        ...prevData,
+        doctors: prevData.doctors.filter((_, i) => i !== index)
+      }));
+    };
+    
+    const addSchedule = (doctorIndex) => {
+      setData(prevData => ({
+        ...prevData,
+        doctors: prevData.doctors.map((doctor, i) => 
+          i === doctorIndex ? {
+            ...doctor,
+            schedule: [...doctor.schedule, { day: '', hours: '' }]
+          } : doctor
+        )
+      }));
+    };
+    
+    const removeSchedule = (doctorIndex, scheduleIndex) => {
+      setData(prevData => ({
+        ...prevData,
+        doctors: prevData.doctors.map((doctor, i) => 
+          i === doctorIndex ? {
+            ...doctor,
+            schedule: doctor.schedule.filter((_, j) => j !== scheduleIndex)
+          } : doctor
+        )
+      }));
+    };
   
     const handleSubmit = (e) => {
       e.preventDefault()
@@ -136,41 +201,69 @@ const AdminEdit = () => {
         <CardHeader>
           <CardTitle>Resources</CardTitle>
         </CardHeader>
-        <CardContent>
-          <Textarea 
-            value={data.resources.join('\n')} 
-            onChange={(e) => handleArrayChange(e, 'resources')}
-            placeholder="Enter resources (one per line)"
-            rows={5}
-          />
+        <CardContent className="space-y-4">
+          {data.resources.map((resource, index) => (
+            <div key={index} className="flex items-center space-x-2">
+              <Input 
+                value={resource}
+                onChange={(e) => handleResourceChange(index, e.target.value)}
+                placeholder="Enter resource"
+              />
+              <Button
+                type="button"
+                variant="ghost"
+                size="icon"
+                onClick={() => removeResource(index)}
+              >
+                <X className="h-4 w-4" />
+              </Button>
+            </div>
+          ))}
+          <Button
+            type="button"
+            variant="outline"
+            size="sm"
+            className="mt-2"
+            onClick={addResource}
+          >
+            <PlusCircle className="h-4 w-4 mr-2" />
+            Add Resource
+          </Button>
         </CardContent>
       </Card>
 
       <Card>
         <CardHeader>
-          <CardTitle>Available Organs</CardTitle>
+          <CardTitle>Availiable Organs</CardTitle>
         </CardHeader>
-        <CardContent>
-          <Textarea 
-            value={data.organs.join('\n')} 
-            onChange={(e) => handleArrayChange(e, 'organs')}
-            placeholder="Enter available organs (one per line)"
-            rows={5}
-          />
-        </CardContent>
-      </Card>
-
-      <Card>
-        <CardHeader>
-          <CardTitle>Available Blood Types</CardTitle>
-        </CardHeader>
-        <CardContent>
-          <Textarea 
-            value={data.blood.join('\n')} 
-            onChange={(e) => handleArrayChange(e, 'blood')}
-            placeholder="Enter available blood types (one per line)"
-            rows={3}
-          />
+        <CardContent className="space-y-4">
+          {data.organs.map((resource, index) => (
+            <div key={index} className="flex items-center space-x-2">
+              <Input 
+                value={resource}
+                onChange={(e) => handleResourceChange(index, e.target.value)}
+                placeholder="Enter resource"
+              />
+              <Button
+                type="button"
+                variant="ghost"
+                size="icon"
+                onClick={() => removeResource(index)}
+              >
+                <X className="h-4 w-4" />
+              </Button>
+            </div>
+          ))}
+          <Button
+            type="button"
+            variant="outline"
+            size="sm"
+            className="mt-2"
+            onClick={addResource}
+          >
+            <PlusCircle className="h-4 w-4 mr-2" />
+            Add Organs
+          </Button>
         </CardContent>
       </Card>
 
@@ -179,23 +272,31 @@ const AdminEdit = () => {
           <CardTitle>Doctors</CardTitle>
         </CardHeader>
         <CardContent className="space-y-4">
-          {data.doctors.map((doctor, index) => (
-            <Card key={index}>
+          {data.doctors.map((doctor, doctorIndex) => (
+            <Card key={doctorIndex}>
               <CardContent className="space-y-4">
-                <div>
-                  <Label htmlFor={`doctor-name-${index}`}>Doctor Name</Label>
-                  <Input 
-                    id={`doctor-name-${index}`}
-                    value={doctor.name}
-                    onChange={(e) => handleDoctorChange(index, 'name', e.target.value)}
-                  />
+                <div className="flex justify-between items-center">
+                  <Label htmlFor={`doctor-name-${doctorIndex}`}>Doctor Name</Label>
+                  <Button
+                    type="button"
+                    variant="ghost"
+                    size="icon"
+                    onClick={() => removeDoctor(doctorIndex)}
+                  >
+                    <X className="h-4 w-4" />
+                  </Button>
                 </div>
+                <Input 
+                  id={`doctor-name-${doctorIndex}`}
+                  value={doctor.name}
+                  onChange={(e) => handleDoctorChange(doctorIndex, 'name', e.target.value)}
+                />
                 <div>
-                  <Label htmlFor={`doctor-specialty-${index}`}>Specialty</Label>
+                  <Label htmlFor={`doctor-specialty-${doctorIndex}`}>Specialty</Label>
                   <Input 
-                    id={`doctor-specialty-${index}`}
+                    id={`doctor-specialty-${doctorIndex}`}
                     value={doctor.specialty}
-                    onChange={(e) => handleDoctorChange(index, 'specialty', e.target.value)}
+                    onChange={(e) => handleDoctorChange(doctorIndex, 'specialty', e.target.value)}
                   />
                 </div>
                 <div>
@@ -204,22 +305,50 @@ const AdminEdit = () => {
                     <div key={scheduleIndex} className="flex space-x-2 mt-2">
                       <Input 
                         value={schedule.day}
-                        onChange={(e) => handleScheduleChange(index, scheduleIndex, 'day', e.target.value)}
+                        onChange={(e) => handleScheduleChange(doctorIndex, scheduleIndex, 'day', e.target.value)}
                         placeholder="Day"
                       />
                       <Input 
                         value={schedule.hours}
-                        onChange={(e) => handleScheduleChange(index, scheduleIndex, 'hours', e.target.value)}
+                        onChange={(e) => handleScheduleChange(doctorIndex, scheduleIndex, 'hours', e.target.value)}
                         placeholder="Hours"
                       />
+                      <Button
+                        type="button"
+                        variant="ghost"
+                        size="icon"
+                        onClick={() => removeSchedule(doctorIndex, scheduleIndex)}
+                      >
+                        <X className="h-4 w-4" />
+                      </Button>
                     </div>
                   ))}
+                  <Button
+                    type="button"
+                    variant="outline"
+                    size="sm"
+                    className="mt-2"
+                    onClick={() => addSchedule(doctorIndex)}
+                  >
+                    <PlusCircle className="h-4 w-4 mr-2" />
+                    Add Schedule
+                  </Button>
                 </div>
               </CardContent>
             </Card>
           ))}
+          <Button
+            type="button"
+            variant="outline"
+            onClick={addDoctor}
+          >
+            <PlusCircle className="h-4 w-4 mr-2" />
+            Add Doctor
+          </Button>
         </CardContent>
       </Card>
+
+
       <div className='flex gap-x-10'>
       <Button type="submit" className='bg-purple-600 text-white'>Save Changes</Button>
       </div>
