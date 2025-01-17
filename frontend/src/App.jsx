@@ -27,6 +27,7 @@ import DonateLayout from './assets/Pages/Blood/DonateLayout';
 import AuthPage from './assets/Pages/Admin/AuthPage';
 import BloodAdmin from './assets/Pages/Admin/BloodAdmin';
 import BloodEdit from './assets/Pages/Admin/BloodEdit';
+import data from './assets/Pages/Admin/adminkeyvalue'
 
 const App = () => {
     
@@ -63,7 +64,7 @@ const App = () => {
             <Route path="/bloodedit" element={<BloodEdit/>}/>
             <Route path="/authpage/bloodadmin" element={<BloodAdmin/>}/>
             <Route path="/authpage/admin" element={<Admin/>}/>
-            <Route path="/adminedit" element={<AdminEdit/>}/>
+            <Route path="/admin/edit/:id" element={<AdminEdit/>}/>
         
       </Routes>
     </>

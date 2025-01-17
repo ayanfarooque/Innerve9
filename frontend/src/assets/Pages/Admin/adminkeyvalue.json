@@ -1,0 +1,77 @@
+{
+      "hospitals": [
+        {
+          "id": 13,
+          "name": "City General Hospital",
+          "location": "123 Main St, Downtown, City 12345",
+          "beds": 500,
+          "oxygencyl": 15,
+          "powerBackup": true,
+          "resources": [
+            "Emergency Room",
+            "Intensive Care Unit",
+            "Radiology Department",
+            "Surgery Center",
+            "Maternity Ward"
+          ],
+          "organs": ["Heart", "Kidneys", "Liver", "Lungs", "Pancreas", "Corneas", "Bone Marrow"],
+          "blood": ["A+", "A-", "AB+"],
+          "doctors": [
+            {
+              "name": "Dr. John Doe",
+              "specialty": "Cardiology",
+              "schedule": [
+                { "day": "Monday", "hours": "9:00 AM - 5:00 PM" },
+                { "day": "Wednesday", "hours": "10:00 AM - 6:00 PM" },
+                { "day": "Friday", "hours": "9:00 AM - 3:00 PM" }
+              ]
+            },
+            {
+              "name": "Dr. Jane Smith",
+              "specialty": "Pediatrics",
+              "schedule": [
+                { "day": "Tuesday", "hours": "8:00 AM - 4:00 PM" },
+                { "day": "Thursday", "hours": "9:00 AM - 5:00 PM" }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 14,
+          "name": " General Hospital",
+          "location": "Kondwa Pune",
+          "beds": 300,
+          "oxygencyl": 15,
+          "powerBackup": true,
+          "resources": [
+            "Emergency Room",
+            "Intensive Care Unit",
+            "Radiology Department",
+            "Surgery Center",
+            "Maternity Ward"
+          ],
+          "organs": ["Heart", "Kidneys",  "Lungs", "Pancreas"],
+          "blood": ["A+", "A-", "AB+"],
+          "doctors": [
+            {
+              "name": "Dr. John Doe",
+              "specialty": "Cardiology",
+              "schedule": [
+                { "day": "Monday", "hours": "9:00 AM - 5:00 PM" },
+                { "day": "Wednesday", "hours": "10:00 AM - 6:00 PM" },
+                { "day": "Friday", "hours": "9:00 AM - 3:00 PM" }
+              ]
+            },
+            {
+              "name": "Dr. Jane Smith",
+              "specialty": "Pediatrics",
+              "schedule": [
+                { "day": "Tuesday", "hours": "8:00 AM - 4:00 PM" },
+                { "day": "Thursday", "hours": "9:00 AM - 5:00 PM" }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  

@@ -1,172 +1,180 @@
-import React from 'react'
-import { useState } from 'react'
+import React, { useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Checkbox } from "@/components/ui/checkbox"
 import { Button } from "@/components/ui/button"
-import { Textarea } from "@/components/ui/textarea"
-import { useNavigate } from 'react-router-dom';
-import Header from '@/assets/Comp/Header/Header'
-import Footer from '@/assets/Comp/Footer/Footer'
 import { PlusCircle, X } from 'lucide-react'
+import Footer from '@/assets/Comp/Footer/Footer';
+import Header from '@/assets/Comp/Header/Header';
+import { useLocation } from 'react-router-dom';
 
 const AdminEdit = () => {
 
-    const navigate = useNavigate();
-    
+  // const data = data1[0]
 
-    const data1 = [
-        {
-          id: 13,
-          name: "City General Hospital",
-          location: "123 Main St, Downtown, City 12345",
-          beds: 500,
-          oxygencyl: 15,
-          powerBackup: true,
-          resources: [
-            "Emergency Room",
-            "Intensive Care Unit",
-            "Radiology Department",
-            "Surgery Center",
-            "Maternity Ward"
-          ],
-          organs: ["Heart", "Kidneys", "Liver", "Lungs", "Pancreas", "Corneas", "Bone Marrow"],
-          blood: ["A+", "A-", "AB+"],
-          doctors: [
-            {
-              name: "Dr. John Doe",
-              specialty: "Cardiology",
-              schedule: [
-                { day: "Monday", hours: "9:00 AM - 5:00 PM" },
-                { day: "Wednesday", hours: "10:00 AM - 6:00 PM" },
-                { day: "Friday", hours: "9:00 AM - 3:00 PM" }
-              ]
-            },
-            {
-              name: "Dr. Jane Smith",
-              specialty: "Pediatrics",
-              schedule: [
-                { day: "Tuesday", hours: "8:00 AM - 4:00 PM" },
-                { day: "Thursday", hours: "9:00 AM - 5:00 PM" }
-              ]
-            }
-          ]
-        }
-    ];
+  // const initialFormData = {
+  //   id: data.id,
+  //   name: data.name,
+  //   location: data?.location || '',
+  //   beds: data?.beds || 0,
+  //   oxygencyl: data?.oxygencyl || 0,
+  //   powerBackup: data?.powerBackup || false,
+  //   resources: data?.resources || [],
+  //   organs: data?.organs || [],
+  //   blood: data?.blood || [],
+  //   doctors: data?.doctors || []
+  // };
 
-    const [data, setData] = useState(data1[0])
+  const location = useLocation();
+  const hospital = location.state;
 
-    const handleChange = (e) => {
-      const { name, value } = e.target
-      setData(prevData => ({ ...prevData, [name]: value }))
-    }
+  const [formData, setFormData] = useState(hospital);
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+  const handleResourceChange = (index, value) => {
+    setFormData(prev => {
+      const updatedResources = [...prev.resources];
+      updatedResources[index] = value;
+      return { ...prev, resources: updatedResources };
+    });
+  };
+
+  const addResource = () => {
+    setFormData(prev => ({
+      ...prev,
+      resources: [...prev.resources, '']
+    }));
+  };
+
+  const removeResource = (index) => {
+    setFormData(prev => ({
+      ...prev,
+      resources: prev.resources.filter((_, i) => i !== index)
+    }));
+  };
+
+  const handleOrgansChange = (index, value) => {
+    setFormData(prev => {
+      const updatedOrgans = [...prev.organs];
+      updatedOrgans[index] = value;
+      return { ...prev, organs: updatedOrgans };
+    });
+  };
   
-    // const handleCheckboxChange = (e) => {
-    //   const { name, checked } = e.target
-    //   setData(prevData => ({ ...prevData, [name]: checked }))
-    // }
-  
-    // const handleArrayChange = (e, field) => {
-    //   const value = e.target.value.split('\n').filter(item => item.trim() !== '')
-    //   setData(prevData => ({ ...prevData, [field]: value }))
-    // }
-  
-    const handleDoctorChange = (index, field, value) => {
-      setData(prevData => ({
-        ...prevData,
-        doctors: prevData.doctors.map((doctor, i) => 
-          i === index ? { ...doctor, [field]: value } : doctor
-        )
-      }))
-    }
+  const addOrgans = () => {
+    setFormData(prev => ({
+      ...prev,
+      organs: [...prev.organs, '']
+    }));
+  };
 
-    const addResource = () => {
-      setData(prevData => ({
-        ...prevData,
-        resources: [...prevData.resources, '']
-      }))
-    }
-    
-    const removeResource = (index) => {
-      setData(prevData => ({
-        ...prevData,
-        resources: prevData.resources.filter((_, i) => i !== index)
-      }))
-    }
-    
-    const handleResourceChange = (index, value) => {
-      setData(prevData => ({
-        ...prevData,
-        resources: prevData.resources.map((resource, i) => i === index ? value : resource)
-      }))
-    }
+  const removeOrgans = (index) => {
+    setFormData(prev => ({
+      ...prev,
+      organs: prev.organs.filter((_, i) => i !== index)
+    }));
+  };
   
-    const handleScheduleChange = (doctorIndex, scheduleIndex, field, value) => {
-      setData(prevData => ({
-        ...prevData,
-        doctors: prevData.doctors.map((doctor, i) => 
-          i === doctorIndex ? {
-            ...doctor,
-            schedule: doctor.schedule.map((schedule, j) => 
-              j === scheduleIndex ? { ...schedule, [field]: value } : schedule
-            )
-          } : doctor
-        )
-      }))
-    }
 
-    const addDoctor = () => {
-      const newDoctor = {
-        name: '',
-        specialty: '',
-        schedule: [{ day: '', hours: '' }]
+  const handleDoctorChange = (index, field, value) => {
+    setFormData(prev => {
+      const updatedDoctors = [...prev.doctors];
+      updatedDoctors[index] = {
+        ...updatedDoctors[index],
+        [field]: value
       };
-      setData(prevData => ({
-        ...prevData,
-        doctors: [...prevData.doctors, newDoctor]
-      }));
-    };
-    
-    const removeDoctor = (index) => {
-      setData(prevData => ({
-        ...prevData,
-        doctors: prevData.doctors.filter((_, i) => i !== index)
-      }));
-    };
-    
-    const addSchedule = (doctorIndex) => {
-      setData(prevData => ({
-        ...prevData,
-        doctors: prevData.doctors.map((doctor, i) => 
-          i === doctorIndex ? {
-            ...doctor,
-            schedule: [...doctor.schedule, { day: '', hours: '' }]
-          } : doctor
-        )
-      }));
-    };
-    
-    const removeSchedule = (doctorIndex, scheduleIndex) => {
-      setData(prevData => ({
-        ...prevData,
-        doctors: prevData.doctors.map((doctor, i) => 
-          i === doctorIndex ? {
-            ...doctor,
-            schedule: doctor.schedule.filter((_, j) => j !== scheduleIndex)
-          } : doctor
-        )
-      }));
-    };
-  
-    const handleSubmit = (e) => {
-      e.preventDefault()
-      console.log('Submitted data:', data)
-      alert('Data submitted successfully!')
+      return { ...prev, doctors: updatedDoctors };
+    });
+  };
+
+  const addDoctor = () => {
+    setFormData(prev => ({
+      ...prev,
+      doctors: [
+        ...prev.doctors,
+        { name: '', specialty: '', schedule: [] }
+      ]
+    }));
+  };
+
+  const removeDoctor = (index) => {
+    setFormData(prev => ({
+      ...prev,
+      doctors: prev.doctors.filter((_, i) => i !== index)
+    }));
+  };
+
+  const handleScheduleChange = (doctorIndex, scheduleIndex, field, value) => {
+    setFormData(prev => {
+      const updatedDoctors = [...prev.doctors];
+      const updatedSchedule = [...updatedDoctors[doctorIndex].schedule];
+      updatedSchedule[scheduleIndex] = {
+        ...updatedSchedule[scheduleIndex],
+        [field]: value
+      };
+      updatedDoctors[doctorIndex].schedule = updatedSchedule;
+      return { ...prev, doctors: updatedDoctors };
+    });
+  };
+
+  const addSchedule = (doctorIndex) => {
+    setFormData(prev => {
+      const updatedDoctors = [...prev.doctors];
+      updatedDoctors[doctorIndex].schedule.push({ day: '', hours: '' });
+      return { ...prev, doctors: updatedDoctors };
+    });
+  };
+
+  const removeSchedule = (doctorIndex, scheduleIndex) => {
+    setFormData(prev => {
+      const updatedDoctors = [...prev.doctors];
+      updatedDoctors[doctorIndex].schedule = updatedDoctors[doctorIndex].schedule
+        .filter((_, i) => i !== scheduleIndex);
+      return { ...prev, doctors: updatedDoctors };
+    });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await fetch(`https://your-api-url.com/admins/${formData.id}`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+      if (response.ok) {
+        const result = await response.json();
+        alert('Data updated successfully!');
+        console.log('Updated data:', result);
+      } else {
+        alert('Failed to update data. Please try again.');
+      }
+    } catch (error) {
+      console.error('Error updating data:', error);
+      alert('An error occurred while updating the data.');
     }
+  };
+
+  // Fix for power backup checkbox
+  const handlePowerBackupChange = (checked) => {
+    setFormData(prev => ({
+      ...prev,
+      powerBackup: checked
+    }));
+  };
 
   return (
-    <div className="bg-[#f3efff]">
+    <div>
     <Header/>
     <form onSubmit={handleSubmit} className="space-y-6 p-14">
       <Card>
@@ -176,24 +184,63 @@ const AdminEdit = () => {
         <CardContent className="space-y-4">
           <div>
             <Label htmlFor="name">Hospital Name</Label>
-            <Input id="name" name="name" value={data.name} onChange={handleChange} required />
+            <Input id="name" name="name" value={formData.name} onChange={handleChange} required />
           </div>
           <div>
             <Label htmlFor="location">Location</Label>
-            <Input id="location" name="location" value={data.location} onChange={handleChange} required />
+            <Input id="location" name="location" value={formData.location} onChange={handleChange} required />
           </div>
           <div>
             <Label htmlFor="beds">Number of Beds</Label>
-            <Input id="beds" name="beds" type="number" value={data.beds} onChange={handleChange} required />
+            <Input id="beds" name="beds" type="number" value={formData.beds} onChange={handleChange} required />
           </div>
           <div>
             <Label htmlFor="oxygencyl">Oxygen Cylinders</Label>
-            <Input id="oxygencyl" name="oxygencyl" type="number" value={data.oxygencyl} onChange={handleChange} required />
+            <Input id="oxygencyl" name="oxygencyl" type="number" value={formData.oxygencyl} onChange={handleChange} required />
           </div>
           <div className="flex items-center space-x-2">
-            <Checkbox id="powerBackup" name="powerBackup" checked={data.powerBackup} onCheckedChange={(checked) => setData(prevData => ({ ...prevData, powerBackup: checked }))} />
+            <Checkbox 
+              id="powerBackup" 
+              checked={formData.powerBackup} 
+              onCheckedChange={handlePowerBackupChange} 
+            />
             <Label htmlFor="powerBackup">Power Backup</Label>
           </div>
+        </CardContent>
+      </Card>
+
+      <Card>
+        <CardHeader>
+          <CardTitle>Organs</CardTitle>
+        </CardHeader>
+        <CardContent className="space-y-4">
+          {formData.organs.map((resource, index) => (
+            <div key={index} className="flex items-center space-x-2">
+              <Input 
+                value={resource}
+                onChange={(e) => handleOrgansChange(index, e.target.value)}
+                placeholder="Enter organs"
+              />
+              <Button
+                type="button"
+                variant="ghost"
+                size="icon"
+                onClick={() => removeOrgans(index)}
+              >
+                <X className="h-4 w-4" />
+              </Button>
+            </div>
+          ))}
+          <Button
+            type="button"
+            variant="outline"
+            size="sm"
+            className="mt-2"
+            onClick={addOrgans}
+          >
+            <PlusCircle className="h-4 w-4 mr-2" />
+            Add Organs
+          </Button>
         </CardContent>
       </Card>
 
@@ -202,7 +249,7 @@ const AdminEdit = () => {
           <CardTitle>Resources</CardTitle>
         </CardHeader>
         <CardContent className="space-y-4">
-          {data.resources.map((resource, index) => (
+          {formData.resources.map((resource, index) => (
             <div key={index} className="flex items-center space-x-2">
               <Input 
                 value={resource}
@@ -234,45 +281,10 @@ const AdminEdit = () => {
 
       <Card>
         <CardHeader>
-          <CardTitle>Availiable Organs</CardTitle>
-        </CardHeader>
-        <CardContent className="space-y-4">
-          {data.organs.map((resource, index) => (
-            <div key={index} className="flex items-center space-x-2">
-              <Input 
-                value={resource}
-                onChange={(e) => handleResourceChange(index, e.target.value)}
-                placeholder="Enter resource"
-              />
-              <Button
-                type="button"
-                variant="ghost"
-                size="icon"
-                onClick={() => removeResource(index)}
-              >
-                <X className="h-4 w-4" />
-              </Button>
-            </div>
-          ))}
-          <Button
-            type="button"
-            variant="outline"
-            size="sm"
-            className="mt-2"
-            onClick={addResource}
-          >
-            <PlusCircle className="h-4 w-4 mr-2" />
-            Add Organs
-          </Button>
-        </CardContent>
-      </Card>
-
-      <Card>
-        <CardHeader>
           <CardTitle>Doctors</CardTitle>
         </CardHeader>
         <CardContent className="space-y-4">
-          {data.doctors.map((doctor, doctorIndex) => (
+          {formData.doctors.map((doctor, doctorIndex) => (
             <Card key={doctorIndex}>
               <CardContent className="space-y-4">
                 <div className="flex justify-between items-center">
@@ -348,14 +360,11 @@ const AdminEdit = () => {
         </CardContent>
       </Card>
 
-
-      <div className='flex gap-x-10'>
       <Button type="submit" className='bg-purple-600 text-white'>Save Changes</Button>
-      </div>
     </form>
     <Footer/>
     </div>
-  )
-}
+  );
+};
 
-export default AdminEdit
+export default AdminEdit;

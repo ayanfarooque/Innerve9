@@ -1,6 +1,6 @@
 import React from 'react'
 import { useState } from 'react';
-import { useForm, Controller } from 'react-hook-form';
+import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
 import { format } from 'date-fns';
@@ -30,6 +30,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select';
+import { toast } from 'react-toastify';
 
 const formSchema = z.object({
   firstName: z.string().min(2, 'First name must be at least 2 characters'),
@@ -49,8 +50,9 @@ const formSchema = z.object({
   bloodType: z.string().min(1, 'Blood type is required'),
 });
 
-
 const Donate = () => {
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    
     const form = useForm({
         resolver: zodResolver(formSchema),
         defaultValues: {
@@ -69,16 +71,58 @@ const Donate = () => {
           occupation: '',
           bloodType: '',
         },
-      });
-    
-      function onSubmit(values) {
-        console.log(values);
-        // Submit form data
-      }
-    
-      const Section = ({ children }) => (
+    });
+
+    const putDonationData = async (data) => {
+        try {
+            const response = await fetch('/api/donations', {  // Replace with your actual API endpoint
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    ...data,
+                    dob: format(data.dob, 'yyyy-MM-dd'),  // Format date for API
+                    submittedAt: new Date().toISOString(),
+                }),
+            });
+
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+
+            const result = await response.json();
+            return result;
+        } catch (error) {
+            throw new Error('Failed to submit donation form: ' + error.message);
+        }
+    };
+
+    async function onSubmit(values) {
+        setIsSubmitting(true);
+        try {
+            const result = await putDonationData(values);
+            toast({
+                title: "Success!",
+                description: "Your donation form has been submitted successfully.",
+                variant: "success",
+            });
+            // Optionally reset form after successful submission
+            form.reset();
+        } catch (error) {
+            toast({
+                title: "Error",
+                description: error.message,
+                variant: "destructive",
+            });
+        } finally {
+            setIsSubmitting(false);
+        }
+    }
+
+    const Section = ({ children }) => (
         <div className="border-b border-black pb-6 mb-6">{children}</div>
-      );
+    );
 
   return (
     <div className="bg-[#f3efff]">
@@ -136,7 +180,7 @@ const Donate = () => {
                   </PopoverTrigger>
                   <PopoverContent className="w-auto p-0" align="start">
                     <Calendar
-                      className='bg-white'
+                      className='bg-white '
                       mode="single"
                       selected={field.value}
                       onSelect={field.onChange}
@@ -334,7 +378,13 @@ const Donate = () => {
             )}
           />
         </Section>
-        <Button type="submit" className='bg-purple-600 text-white'>Submit</Button>
+        <Button 
+        type="submit" 
+        className='bg-purple-600 text-white'
+        disabled={isSubmitting}
+        >
+        {isSubmitting ? "Submitting..." : "Submit"}
+        </Button>
       </form>
     </Form>
     </div>

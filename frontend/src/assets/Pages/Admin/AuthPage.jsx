@@ -1,32 +1,51 @@
-import React from 'react'
-import { useState } from 'react'
-import { motion } from 'framer-motion'
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
-import { useNavigate } from 'react-router-dom'
+import React, { useState } from 'react';
+import { motion } from 'framer-motion';
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { useNavigate } from 'react-router-dom';
+
+
+const hospitalCredentials = {
+  "13": { id: "admin@city-general.com", password: "123" },
+  "14": { id: "admin@general.com", password: "123"}
+};
+
 
 const AuthPage = () => {
-  const [isLogin, setIsLogin] = useState(true)
-
+  const [isLogin, setIsLogin] = useState(true);
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    setError('');
+
     if (isLogin) {
-      
-      navigate('bloodadmin');  // Redirect to admin after login
+      const hospitalId = Object.keys(hospitalCredentials).find(
+        id => hospitalCredentials[id].id === email && 
+             hospitalCredentials[id].password === password
+      );
+
+      if (hospitalId) {
+        navigate('admin', { state: { hospitalId: parseInt(hospitalId) } });
+      } else {
+        setError('Invalid credentials');
+      }
     } else {
-      
-      navigate('bloodadmin');  // Redirect after successful registration
+      // Handle registration (in a real app, this would connect to a backend)
+      setError('Registration functionality not implemented');
     }
   };
 
-  const toggleForm = (value) => setIsLogin(value)
+  const toggleForm = (value) => setIsLogin(value);
+
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-[#f3efff] p-4 ">
-      <div className="w-full max-w-md bg-white rounded-lg shadow-md overflow-hidden ">
+    <div className="min-h-screen flex items-center justify-center bg-[#f3efff] p-4">
+      <div className="w-full max-w-md bg-white rounded-lg shadow-md overflow-hidden">
         <div className="relative">
           <div className="flex">
             <button
@@ -53,7 +72,6 @@ const AuthPage = () => {
             transition={{ type: 'spring', stiffness: 300, damping: 30 }}
           />
         </div>
-
         <div className="p-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -63,9 +81,9 @@ const AuthPage = () => {
             key={isLogin ? 'login' : 'signup'}
           >
             <h2 className="text-2xl font-bold text-center mb-6">
-              {isLogin ? 'Admin login' : 'Register Admin'}
+              {isLogin ? 'Admin Login' : 'Register Admin'}
             </h2>
-            <form onSubmit={(e) => e.preventDefault()} className="space-y-4">
+            <form onSubmit={handleSubmit} className="space-y-4">
               {!isLogin && (
                 <div className="space-y-2">
                   <Label htmlFor="name">Full Name</Label>
@@ -74,11 +92,24 @@ const AuthPage = () => {
               )}
               <div className="space-y-2">
                 <Label htmlFor="email">Email</Label>
-                <Input id="email" type="email" placeholder="you@example.com" required />
+                <Input 
+                  id="email" 
+                  type="email" 
+                  placeholder="you@example.com" 
+                  required
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                />
               </div>
               <div className="space-y-2">
                 <Label htmlFor="password">Password</Label>
-                <Input id="password" type="password" required />
+                <Input 
+                  id="password" 
+                  type="password" 
+                  required
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                />
               </div>
               {!isLogin && (
                 <div className="space-y-2">
@@ -86,7 +117,10 @@ const AuthPage = () => {
                   <Input id="confirm-password" type="password" required />
                 </div>
               )}
-              <Button type="submit" onClick={handleSubmit} className="w-full bg-purple-600 text-white">
+              {error && (
+                <div className="text-red-500 text-sm">{error}</div>
+              )}
+              <Button type="submit" className="w-full bg-purple-600 text-white">
                 {isLogin ? 'Login' : 'Sign Up'}
               </Button>
             </form>
@@ -94,7 +128,7 @@ const AuthPage = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default AuthPage
+export default AuthPage;

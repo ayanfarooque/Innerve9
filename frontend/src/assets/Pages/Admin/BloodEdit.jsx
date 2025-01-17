@@ -33,38 +33,38 @@ const BloodEdit = () => {
         setData(prevData => ({ ...prevData, [name]: value }))
       }
     
-      const handleCheckboxChange = (e) => {
-        const { name, checked } = e.target
-        setData(prevData => ({ ...prevData, [name]: checked }))
-      }
+      // const handleCheckboxChange = (e) => {
+      //   const { name, checked } = e.target
+      //   setData(prevData => ({ ...prevData, [name]: checked }))
+      // }
     
-      const handleArrayChange = (e, field) => {
-        const value = e.target.value.split('\n').filter(item => item.trim() !== '')
-        setData(prevData => ({ ...prevData, [field]: value }))
-      }
+      // const handleArrayChange = (e, field) => {
+      //   const value = e.target.value.split('\n').filter(item => item.trim() !== '')
+      //   setData(prevData => ({ ...prevData, [field]: value }))
+      // }
     
-      const handleDoctorChange = (index, field, value) => {
-        setData(prevData => ({
-          ...prevData,
-          doctors: prevData.doctors.map((doctor, i) => 
-            i === index ? { ...doctor, [field]: value } : doctor
-          )
-        }))
-      }
+      // const handleDoctorChange = (index, field, value) => {
+      //   setData(prevData => ({
+      //     ...prevData,
+      //     doctors: prevData.doctors.map((doctor, i) => 
+      //       i === index ? { ...doctor, [field]: value } : doctor
+      //     )
+      //   }))
+      // }
     
-      const handleScheduleChange = (doctorIndex, scheduleIndex, field, value) => {
-        setData(prevData => ({
-          ...prevData,
-          doctors: prevData.doctors.map((doctor, i) => 
-            i === doctorIndex ? {
-              ...doctor,
-              schedule: doctor.schedule.map((schedule, j) => 
-                j === scheduleIndex ? { ...schedule, [field]: value } : schedule
-              )
-            } : doctor
-          )
-        }))
-      }
+      // const handleScheduleChange = (doctorIndex, scheduleIndex, field, value) => {
+      //   setData(prevData => ({
+      //     ...prevData,
+      //     doctors: prevData.doctors.map((doctor, i) => 
+      //       i === doctorIndex ? {
+      //         ...doctor,
+      //         schedule: doctor.schedule.map((schedule, j) => 
+      //           j === scheduleIndex ? { ...schedule, [field]: value } : schedule
+      //         )
+      //       } : doctor
+      //     )
+      //   }))
+      // }
     
       const handleSubmit = (e) => {
         e.preventDefault()
