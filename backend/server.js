@@ -10,7 +10,6 @@ app.use(express.json());
 
 const { handleNotFound } = require('./controllers/error_controller');
 const bedRouter = require('./routes/bed');
-const bloodRouter = require('./routes/blood');
 const dashboardRouter = require('./routes/dashboard');
 const hospitalRouter = require('./routes/dashboardHospital');
 const organRouter = require('./routes/organ');
@@ -18,9 +17,11 @@ const resourceRouter = require('./routes/resource');
 const userRouter = require('./routes/user');
 const doctorRouter = require('./routes/doctor');
 const oxygenRouter = require('./routes/oxygen');
+const bloodRouter = require('./routes/bloodadmin');
 
 app.use('/api/dashboard', dashboardRouter);
 app.use('/api/dashboard/hospital', hospitalRouter);
+app.use('/api/blood', bloodRouter);
 
 app.use('/api/search/beds', bedRouter);
 app.use('/api/search/blood', bloodRouter);

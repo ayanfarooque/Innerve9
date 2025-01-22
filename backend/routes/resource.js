@@ -1,5 +1,6 @@
 const express = require('express');
 const {resourceModel, hospitalModel} = require('../schemas/db');
+const authMiddleware = require('../middleware/authMiddleware');
 
 const resourceRouter = express.Router();
 
@@ -40,16 +41,49 @@ resourceRouter.get('/', async (_request, _response) => {
     }
 });
 
-resourceRouter.post('/', async (_request, _response) => {
-    return _response.json({
-        "message": "Welcome to the Resource Router"
-    });
+resourceRouter.post('/', authMiddleware, async (_request, _response) => {
+
+    try{
+
+        const body = _request.body;
+        
+        const newResource = await resourceModel.create({
+            hospitalId: _request.hospitalId,
+            resourceName: body.resourceName
+        });
+
+        return _response.json({
+            "message": "new resource created successfully",
+            newResource
+
+        });
+
+    } catch (_error){
+        return _response.json({
+            _error
+        });
+    }
+
 });
 
-resourceRouter.delete('/', async (_request, _response) => {
-    return _response.json({
-        "message": "Welcome to the Resource Router"
-    });
+resourceRouter.delete('/', authMiddleware, async (_request, _response) => {
+    try{
+        const resourceId = _request.body.resourceId;
+
+        const deletedResource = await resourceModel.deleteOne({
+            _id: resourceId
+        });
+
+        return _response.json({
+            "message": "Welcome to the Resource Router",
+            deletedResource
+        });
+    } catch(_error) {
+        return _response.json({
+            _error
+        })
+    }
+
 });
 
 resourceRouter.put('/', async (_request, _response) => {
