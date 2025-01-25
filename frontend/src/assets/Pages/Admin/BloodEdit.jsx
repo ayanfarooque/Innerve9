@@ -9,72 +9,64 @@ import { Textarea } from "@/components/ui/textarea"
 import { useNavigate } from 'react-router-dom';
 import Header from '@/assets/Comp/Header/Header'
 import Footer from '@/assets/Comp/Footer/Footer'
+import { useLocation } from 'react-router-dom';
 
 const BloodEdit = () => {
-  const data1 = [
-    {
-    id:"9D55VE7GY69",
-    name:"Heller, Gerhold and Rolfson",
-    location:"71850 Manley Pass",
-    Apos :9,
-    Aneg :3,
-    Bpos:3,
-    Bneg:6,
-    ABpos:10,
-    ABneg:4,
-    Opos:2,
-    Oneg:14
-    }
-  ];
-      const [data, setData] = useState(data1[0])
-  
+  const location = useLocation();
+  const hospital = location.state;
+
+      const [data, setData] = useState(hospital)
+
       const handleChange = (e) => {
-        const { name, value } = e.target
-        setData(prevData => ({ ...prevData, [name]: value }))
-      }
+        const { name, value } = e.target;
+        setFormData(prev => ({
+          ...prev,
+          [name]: value
+        }));
+      };
+  
+      const handleBloodChange = (index, value) => {
+        setFormData(prev => {
+          const updatedBlood = [...prev.blood];
+          updatedBlood[index] = value;
+          return { ...prev, blood: updatedBlood };
+        });
+      };
     
-      // const handleCheckboxChange = (e) => {
-      //   const { name, checked } = e.target
-      //   setData(prevData => ({ ...prevData, [name]: checked }))
-      // }
+      const removeBlood = (index) => {
+        setFormData(prev => ({
+          ...prev,
+          blood: prev.blood.filter((_, i) => i !== index)
+        }));
+      };
     
-      // const handleArrayChange = (e, field) => {
-      //   const value = e.target.value.split('\n').filter(item => item.trim() !== '')
-      //   setData(prevData => ({ ...prevData, [field]: value }))
-      // }
+      const handleBloodSubmit = async () => {
+        try {
+          const response = await fetch(`https://your-api-url.com/blood-data`, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ blood: formData.blood }), // Sending only blood data
+          });
     
-      // const handleDoctorChange = (index, field, value) => {
-      //   setData(prevData => ({
-      //     ...prevData,
-      //     doctors: prevData.doctors.map((doctor, i) => 
-      //       i === index ? { ...doctor, [field]: value } : doctor
-      //     )
-      //   }))
-      // }
+          if (response.ok) {
+            const result = await response.json();
+            alert('Blood data updated successfully!');
+            console.log('Updated blood data:', result);
+          } else {
+            alert('Failed to update blood data. Please try again.');
+          }
+        } catch (error) {
+          console.error('Error updating blood data:', error);
+          alert('An error occurred while updating blood data.');
+        }
+      };
     
-      // const handleScheduleChange = (doctorIndex, scheduleIndex, field, value) => {
-      //   setData(prevData => ({
-      //     ...prevData,
-      //     doctors: prevData.doctors.map((doctor, i) => 
-      //       i === doctorIndex ? {
-      //         ...doctor,
-      //         schedule: doctor.schedule.map((schedule, j) => 
-      //           j === scheduleIndex ? { ...schedule, [field]: value } : schedule
-      //         )
-      //       } : doctor
-      //     )
-      //   }))
-      // }
-    
-      const handleSubmit = (e) => {
-        e.preventDefault()
-        console.log('Submitted data:', data)
-        alert('Data submitted successfully!')
-      }
   return (
     <div>
       <Header/>
-      <form onSubmit={handleSubmit} className="space-y-6 p-14">
+      <form onSubmit={handleBloodSubmit} className="space-y-6 p-14">
       <Card>
               <CardHeader>
                 <CardTitle>General Information</CardTitle>

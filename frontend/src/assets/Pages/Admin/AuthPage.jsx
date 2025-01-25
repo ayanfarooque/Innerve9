@@ -11,6 +11,11 @@ const hospitalCredentials = {
   "14": { id: "admin@general.com", password: "123"}
 };
 
+const bloodCredentials = {
+  "9D55VE7GY69": {id:"blood@bank1.com", password: "123"},
+  "3NN2X55VV67": {id:"blood@bank2.com", password: "123"}
+}
+
 
 const AuthPage = () => {
   const [isLogin, setIsLogin] = useState(true);
@@ -24,18 +29,34 @@ const AuthPage = () => {
     setError('');
 
     if (isLogin) {
+      // Check hospital credentials
       const hospitalId = Object.keys(hospitalCredentials).find(
-        id => hospitalCredentials[id].id === email && 
-             hospitalCredentials[id].password === password
+        id =>
+          hospitalCredentials[id].id === email &&
+          hospitalCredentials[id].password === password
       );
 
       if (hospitalId) {
-        navigate('admin', { state: { hospitalId: parseInt(hospitalId) } });
-      } else {
-        setError('Invalid credentials');
+        navigate('admin', { state: { type: 'hospital', id: hospitalId } });
+        return;
       }
+
+      // Check blood bank credentials
+      const bloodBankId = Object.keys(bloodCredentials).find(
+        id =>
+          bloodCredentials[id].id === email &&
+          bloodCredentials[id].password === password
+      );
+
+      if (bloodBankId) {
+        // Pass blood bank data along with ID 
+        navigate('bloodadmin', { state: { type: 'blood', id: bloodBankId } });
+        return;
+      }
+
+      setError('Invalid credentials');
     } else {
-      // Handle registration (in a real app, this would connect to a backend)
+      // Handle registration
       setError('Registration functionality not implemented');
     }
   };

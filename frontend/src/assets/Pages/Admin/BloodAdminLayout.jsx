@@ -1,26 +1,29 @@
 import React from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { useLocation, useNavigate } from 'react-router-dom';
+import { Button } from '@/components/ui/button'
+import data1 from '../Blood/blood.json'
 
 const BloodAdminLayout = () => {
-    const data = [
-        {
-        id:"9D55VE7GY69",
-        name:"Heller, Gerhold and Rolfson",
-        location:"71850 Manley Pass",
-        Apos :9,
-        Aneg :3,
-        Bpos:3,
-        Bneg:6,
-        ABpos:10,
-        ABneg:4,
-        Opos:2,
-        Oneg:14
-        }
-      ];
-    
-      const blood = data[0];
+  const navigate = useNavigate();
+
+  const handleEdit = (blood) => {
+    navigate(`/blood/edit/${blood.id}`, { state: blood });
+  };
+
+  const location = useLocation();
+  const bloodId = location.state?.bloodBankId;  // Extract hospitalId from navigate state
+  const blood = data1.blood.find(blood => blood.id === bloodId);
+  
+
   return (
         <div className="bg-[#f3efff]">
+          <Button
+            onClick={() => handleEdit(blood)}
+            className='bg-purple-600 text-white'
+          >
+            Edit
+          </Button>
           <div className="space-y-6 p-14">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <Card className="w-full">
